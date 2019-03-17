@@ -1,0 +1,153 @@
+body {
+    margin: 0;
+    background: ghostwhite;
+    font-family: 'Work Sans', sans-serif;
+    font-weight: 600;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+/*--------- Header ---------*/
+
+
+header {
+    background: #3c4a55;
+}
+
+header::after {
+    content: '';
+    display: table;
+    clear: both;
+}
+
+.container_header {
+    margin: 0 auto;
+    overflow: hidden;
+    position: fixed;
+    background: #3c4a55;
+    width: 100%;
+
+    display: flex;
+    justify-content: space-around;
+}
+
+.container_header a {
+    display: block;
+}
+
+.container_header .logo{
+    float: left;
+    padding: 10px 0;
+}
+
+.container_header .main_nav {
+    float: right;
+}
+
+.container_header .main_nav ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.container_header .main_nav  li {
+    display: inline-block;
+    margin-left: 70px;
+    padding-top: 23px;
+
+    position: relative;
+}
+
+
+.container_header .main_nav  a {
+    color: ghostwhite;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 14px;
+}
+
+.container_header .main_nav  a:hover {
+    color: #000;
+}
+
+.container_header .main_nav  a::before {
+    content: '';
+    display: block;
+    height: 5px;
+    background-color: #000;
+
+    position: absolute;
+    top: 0;
+    width: 0;
+
+    transition: all ease-in-out 250ms;
+}
+
+.container_header .main_nav a:hover::before {
+    width: 100%;
+}
+
+
+/*--------- Main ------------*/
+
+
+.main {
+    scroll-behavior: smooth;
+}
+
+.main .main_text h1{
+    padding-top: 60px;
+
+    text-align: center;
+    font-size: 40px;
+    font-weight: 400;
+    color: darkred;
+
+
+    scroll-behavior: smooth;
+}
+
+.main .main_text h3{
+    text-align: center;
+    font-size: 20px;
+    font-weight: 300;
+    color: rgb(200, 50, 50);
+    margin: 5px 5px;
+}
+
+/*--------- About ----------*/
+.main .about {
+    padding-top: 60px;
+}
+/*--------- Contact ----------*/
+.main .contact {
+    padding-top: 60px;
+}
+/*--------- Footer ----------*/
+
+
+#footer {
+    background: #3c4a55;
+    padding: 5px 5px;
+}
+.container_footer {
+    text-align: center;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.copyright {
+    text-decoration: none;
+    color: white;
+}
+
+.copyright a{
+    text-decoration: none;
+    color: ghostwhite;
+}
+
+.copyright a:hover {
+    color: black;
+}
