@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>MaxLock</title>
+    <!--Meta-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Lupoae Eduard, Neculache Nicu">
+    <meta name="description" content="Password manager for management password and protection.">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="login-box.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+</head>
+
+
+<body>
+    <header id="header">
+        <nav class="main-nav" id="nav-scroll">
+            <a href="index.html" class="logo"><i class="fab fa-black-tie -fa-7x"></i></a>
+            <div class="nav-elements">
+                <a href="#">Home</a>
+                <a href="#about">About</a>
+                <a href="#contact">Contact</a>
+                <a onclick="document.getElementById('login').style.display='block'" style='width: auto; cursor: pointer'>
+                    <i class="fas fa-unlock-alt"></i> Log in</a>
+                <a href="register.html"><i class="far fa-user"></i> Register</a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Button Login -->
+
+    <!-- Main -->
+
+    <div class="main">
+
+        <div id="login" class="box">
+            <form class="box-content animate" action="php/script.php">
+                <div class="container-login">
+                    <label><b>Username</b></label>
+                    <input type="text" placeholder="   Type your username" name="username" required>
+
+                    <label><b>Password</b></label>
+                    <input type="password" placeholder="   Type your password" name="password" required>
+
+                    <span class="forgot-pass"><a href="#">Forgot password?</a></span>
+                    <button type="submit">Login</button>
+                    <label>
+                        <input type="checkbox" checked="checked" name="remember"> Remember me
+                    </label>
+                </div>
+                <div class="social-media">
+                    <a href="#" id="facebook"><i class="fab fa-facebook-square fa-3x"></i></a>
+                    <a href="#" id="google"><i class="fab fa-google fa-3x"></i></a>
+                    <a href="#" id="twitter"><i class="fab fa-twitter-square fa-3x"></i></a>
+                </div>
+                <div class="register_using">
+                    <span>Or Register Using</span>
+                    <span><a href="#">REGISTER</a></span>
+                </div>
+            </form>
+
+        </div>
+
+        <div class="main-background">
+
+        </div>
+    </div>
+
+    <footer id="footer">
+        <div class="container-footer">
+            <small class="copyright">&#9400; 2019 by <a href="http://www.info.uaic.ro/bin/Main/?language=ro" target="_blank">Alexandru Ioan Cuza University</a>. All rights reserved.</small>
+        </div>
+    </footer>
+
+    <script>
+        // Get the box
+        let modal = document.getElementById('login');
+
+        // When the user clicks anywhere outside of the modal, close it
+        window.onclick = function(event) {
+            if (event.target === modal) {
+                modal.style.display = "none";
+            }
+        }
+    </script>
+    <script src="javascript/background-scroll-bar.js"></script>
+</body>
+</html>

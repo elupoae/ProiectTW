@@ -1,0 +1,59 @@
+.main-nav {
+    margin: 0 auto;
+    overflow: hidden;
+    position: fixed;
+    background: none;
+    width: 100%;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    transition: 5s;
+}
+
+.main-nav .logo {
+    color: white;
+    padding: 20px 0 10px 60px;
+}
+
+.main-nav-scrolled {
+    background-color: #3c4a55;
+    transition: 0.2s;
+}
+
+.nav-elements {
+    padding: 20px 20px;
+}
+
+.nav-elements a {
+    display: inline-block;
+    margin-left: 30px;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 14px;
+    color : white;
+
+    position: relative;
+}
+
+.nav-elements a:hover {
+    color: antiquewhite;
+}
+
+.nav-elements a::before {
+    content: '';
+    display: block;;
+    height: 5px;
+    background-color: antiquewhite;
+
+    position: absolute;
+    top: 20px;
+    width: 0;
+
+    transition: all ease-in-out 300ms;
+}
+
+.nav-elements a:hover::before {
+    width: 100%;
+}
