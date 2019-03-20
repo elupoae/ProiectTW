@@ -7,9 +7,7 @@ body {
     padding: 0;
     background: url("image/background-lock.jpg")  500px;
     background-size: cover;
-    font-size: 16px;
-    color: #222;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Work Sans', sans-serif;
     font-weight: 300;
 }
 
@@ -20,7 +18,7 @@ body {
     height: 400px;
     background: #FFF;
     border-radius: 4px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 2px 4px #222222;
 }
 
 .left {
@@ -31,10 +29,11 @@ body {
     padding: 40px;
     width: 300px;
     height: 400px;
+    border-radius: 0 4px 4px 0;
 }
 
 h1 {
-    margin: 0 0 20px 0;
+    margin-bottom: 20px;
     font-weight: 300;
     font-size: 28px;
     text-align: center;
@@ -44,55 +43,46 @@ input[type="text"], input[type="password"] {
     display: block;
     box-sizing: border-box;
     margin-bottom: 20px;
-    padding: 4px;
+    padding: 5px;
     width: 220px;
-    height: 32px;
+    height: 30px;
     border: none;
-    border-bottom: 1px solid #AAA;
-    font-family: 'Roboto', sans-serif;
+    border-bottom: 1px solid #3c4a55;
     font-weight: 400;
-    font-size: 15px;
+    font-size: 14px;
     transition: all ease-in-out 200ms;
 }
 
 input[type="text"]:focus, input[type="password"]:focus {
     border-bottom: 2px solid antiquewhite;
-    color: antiquewhite;
+    color: black;
     transition: all ease-in-out 200ms;
 }
 
 input[type="submit"] {
-    margin-top: 28px;
+    margin-top: 10px;
     width: 220px;
-    height: 32px;
+    height: 40px;
     background: #3c4a55;
     border: none;
     border-radius: 4px;
-    color: antiquewhite;
-    font-family: 'Roboto', sans-serif;
+    color: white;
     font-weight: 500;
     text-transform: uppercase;
     transition: 0.1s ease;
     cursor: pointer;
 }
 
-input[type="submit"]:hover,
-input[type="submit"]:focus {
+input[type="submit"]:hover {
     opacity: 0.8;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
     transition: 0.1s ease;
 }
 
-input[type="submit"]:active {
-    opacity: 1;
-    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
-    transition: 0.1s ease;
-}
 
 .or a {
     text-decoration: none;
     text-transform: uppercase;
-    color: #222222;
+    color: #222;
 }
 
 .or {
@@ -101,15 +91,15 @@ input[type="submit"]:active {
     left: 275px;
     width: 50px;
     height: 50px;
-    background: #DDDDDD;
+    background: white;
     border-radius: 20%;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 2px 4px #222;
     line-height: 50px;
     text-align: center;
-    cursor: pointer;
     transition-property: background, border-radius;
     transition-duration: 1s;
     transition-timing-function: linear;
+    cursor: pointer;
 }
 
 .or:hover {
@@ -127,50 +117,42 @@ input[type="submit"]:active {
     height: 400px;
     background: url('image/register.jpg') center;
     background-size: cover;
-    border-radius: 0 2px 2px 0;
+    border-radius: 0 4px 4px 0;
 }
 
 .right .loginwith {
     display: block;
     margin-bottom: 23px;
     font-size: 28px;
-    color: #FFF;
+    color: white;
     text-align: center;
 }
 
-button.social-signin {
+button.social-media {
     margin-bottom: 20px;
     width: 220px;
     height: 36px;
     border: none;
     border-radius: 4px;
-    color: #FFF;
-    font-family: 'Roboto', sans-serif;
+    color: white;
     font-weight: 500;
     transition: 0.2s ease;
     cursor: pointer;
 }
 
-button.social-signin:hover, button.social-signin:focus {
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
-    transition: 0.2s;
-    opacity: 1;
+button.social-media:hover {
+    opacity: 0.9;
 }
 
-button.social-signin:active {
-    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
-    transition: 0.2s ease;
-}
-
-button.social-signin.facebook {
+button.social-media.facebook {
     background: #32508E;
 }
 
-button.social-signin.twitter {
+button.social-media.twitter {
     background: #55ACEE;
 }
 
-button.social-signin.google {
+button.social-media.google {
     background: #DD4437;
 }
 

@@ -1,6 +1,6 @@
-window.onscroll = function() {myFunction()};
+window.onscroll = function() {scrollBar()};
 
-function myFunction() {
+function scrollBar() {
     if (document.body.scrollTop > 260 || document.documentElement.scrollTop > 260) {
         document.getElementById("nav-scroll").className = "main-nav-scrolled";
     } else {
