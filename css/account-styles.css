@@ -27,7 +27,7 @@ tr:nth-child(even) {
 }
 
 header {
-    background: url("image/background-lock.jpg") 500px 550px;
+    background: url("../image/background-lock.jpg") 500px 550px;
     background-size: cover;
     height: 200px;
 }
@@ -38,7 +38,7 @@ header {
     margin: 10px 0;
     display: block;
     box-sizing: border-box;
-    background: url(image/icons8-account-20.png) no-repeat 0 7px;
+    background: url(../image/icons8-account-20.png) no-repeat 0 7px;
 
     border: none;
     outline: none !important;
