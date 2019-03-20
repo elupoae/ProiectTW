@@ -16,8 +16,8 @@ html {
 
 
 header {
-    background: url("image/background-lock.jpg") 500px 550px;
-    background-size: cover;
+    background: url("image/Text.png") no-repeat center, url("image/background-lock.jpg") 500px 550px;
+    background-size: 500px 175px, cover;
     height: 300px;
 }
 
@@ -36,8 +36,7 @@ header {
 }
 
 .main-nav .logo {
-    color: white;
-    padding: 20px 0 10px 60px;
+    padding: 10px 0 0 60px;
 }
 
 
@@ -97,8 +96,7 @@ header {
 }
 
 .main-nav-scrolled .logo {
-    color: white;
-    padding: 20px 0 10px 60px;
+    padding: 10px 0 10px 60px;
 }
 
 
