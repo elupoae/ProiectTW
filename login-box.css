@@ -105,7 +105,6 @@ img {
 }
 
 
-
 .register_using {
     margin-top: 30px;
     display: flex;
@@ -148,4 +147,10 @@ span.forgot-pass a:hover{
 @keyframes animatezoom {
     from {transform: scale(0)}
     to {transform: scale(1)}
+}
+
+@media screen and(max-width: 425px) {
+    form.box-content {
+        width: 300px;
+    }
 }
