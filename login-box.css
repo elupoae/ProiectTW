@@ -78,6 +78,7 @@ img {
     background-color: ghostwhite;
     border: 1px solid #888;
     width: 400px;
+    max-width: 96%;
     float: right;
     margin: 4% 2%;
     border-radius: 10px;
