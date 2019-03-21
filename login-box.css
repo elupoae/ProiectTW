@@ -1,36 +1,62 @@
-.box input[type=text] {
+.container-login .form {
     width: 100%;
-    padding: 10px 20px;
-    margin: 10px 0;
-    display: block;
-    box-sizing: border-box;
-    background: url(image/icons8-account-20.png) no-repeat 0 7px;
-
-    border: none;
-    outline: none !important;
-    border-bottom: 1px solid #3c4a55;
-    transition: 0.2s;
+    position: relative;
+    height: 60px;
+    overflow: hidden;
 }
 
-.box input[type=password] {
+.container-login .form input {
     width: 100%;
-    padding: 10px 20px;
-    margin: 10px 0;
-    display: block;
-    box-sizing: border-box;
-    background: url(image/icons8-password-1-20.png) no-repeat 0 7px;
-
+    height: 100%;
+    color: #595f6e;
+    padding-top: 20px;
+    padding-bottom: 3px;
     border: none;
-    outline: none !important;
-    border-bottom: 1px solid #3c4a55;
+    outline: none;
+    font-size: 16px;
 }
 
+.container-login .form .label-login {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 90%;
+    pointer-events: none;
+    border-bottom: 1px solid #3c4a55;
+    font-size: 18px
+}
 
-input[type=text]:focus, input[type=password]:focus {
+.container-login .form .label-login::after {
+    content: "";
+    position: absolute;
+    left: 0;
     bottom: -2px;
+    height: 100%;
+    width: 100%;
     border-bottom: 3px solid #0F9D58;
-    color: black;
-    transition: all ease-in-out 200ms;
+    transform: translateX(-100%);
+    transition: transform 500ms ease;
+}
+
+.container-login .content-span {
+    position: absolute;
+    bottom: 2px;
+    left: 0;
+    transition: all 500ms ease
+}
+
+.container-login .form input:focus + .label-login .content-span,
+.container-login .form input:valid + .label-login .content-span{
+    transform: translateY(-100%);
+    font-size: 16px;
+    height: 25px;
+    color: #0F9D58;
+}
+
+.container-login .form input:focus + .label-login::after,
+.container-login .form input:valid + .label-login::after {
+    transform: translateX(0%);
 }
 
 

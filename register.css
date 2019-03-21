@@ -80,14 +80,14 @@ h1 {
     width: 100%;
     border-bottom: 3px solid #0F9D58;
     transform: translateX(-100%);
-    transition: transform 300ms ease;
+    transition: transform 500ms ease;
 }
 
 .content-span {
     position: absolute;
     bottom: 2px;
     left: 0;
-    transition: all 300ms ease
+    transition: all 500ms ease
 }
 
 .form input:focus + .label .content-span,
