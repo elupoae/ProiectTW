@@ -4,7 +4,7 @@
 body {
     margin: 0;
     background: ghostwhite;
-    font-family: 'Work Sans', sans-serif;
+    font-family: 'Poppins', sans-serif;
     font-weight: 600;
 }
 
@@ -15,91 +15,91 @@ html {
 /*--------- Header ---------*/
 
 
-header {
-    background: url("image/background-lock.jpg") 500px 550px;
-    background-size: cover;
-    height: 300px;
-}
+/*header {*/
+    /*background: url("image/background-lock.jpg") 500px 550px;*/
+    /*background-size: cover;*/
+    /*height: 300px;*/
+/*}*/
 
-.main-nav {
-    margin: 0 auto;
-    overflow: hidden;
-    position: fixed;
-    background: none;
-    width: 100%;
+/*.main-nav {*/
+    /*margin: 0 auto;*/
+    /*overflow: hidden;*/
+    /*position: fixed;*/
+    /*background: none;*/
+    /*width: 100%;*/
 
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+    /*display: flex;*/
+    /*flex-direction: row;*/
+    /*justify-content: space-between;*/
 
-    transition: 0.5s;
-}
+    /*transition: 0.5s;*/
+/*}*/
 
-.main-nav a.logo {
-    color: white;
-    margin: 10px 0 10px 60px;
-}
-
-
-.nav-elements {
-    padding: 20px 20px;
-}
-
-.nav-elements a {
-    display: inline-block;
-    margin-left: 30px;
-    text-decoration: none;
-    text-transform: uppercase;
-    font-size: 14px;
-    color : white;
-
-    position: relative;
-}
-
-.nav-elements a:hover {
-    color: antiquewhite;
-}
-
-.nav-elements a::before {
-    content: '';
-    display: block;
-    height: 5px;
-    background-color: antiquewhite;
-
-    position: absolute;
-    top: 20px;
-    width: 0;
-
-    transition: all ease-in-out 300ms;
-}
-
-.nav-elements a:hover::before {
-    width: 100%;
-}
+/*.main-nav a.logo {*/
+    /*color: white;*/
+    /*margin: 10px 0 10px 60px;*/
+/*}*/
 
 
-.main-nav-scrolled {
-    transition: 0.5s;
-}
+/*.nav-elements {*/
+    /*padding: 20px 20px;*/
+/*}*/
 
-.main-nav-scrolled {
-    margin: 0 auto;
-    overflow: hidden;
-    position: fixed;
-    background: #3c4a55;
-    width: 100%;
+/*.nav-elements a {*/
+    /*display: inline-block;*/
+    /*margin-left: 30px;*/
+    /*text-decoration: none;*/
+    /*text-transform: uppercase;*/
+    /*font-size: 14px;*/
+    /*color : white;*/
 
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+    /*position: relative;*/
+/*}*/
 
-    transition: 0.5s;
-}
+/*.nav-elements a:hover {*/
+    /*color: antiquewhite;*/
+/*}*/
 
-.main-nav-scrolled .logo {
-    color: white;
-    padding: 20px 0 10px 60px;
-}
+/*.nav-elements a::before {*/
+    /*content: '';*/
+    /*display: block;*/
+    /*height: 5px;*/
+    /*background-color: antiquewhite;*/
+
+    /*position: absolute;*/
+    /*top: 20px;*/
+    /*width: 0;*/
+
+    /*transition: all ease-in-out 300ms;*/
+/*}*/
+
+/*.nav-elements a:hover::before {*/
+    /*width: 100%;*/
+/*}*/
+
+
+/*.main-nav-scrolled {*/
+    /*transition: 0.5s;*/
+/*}*/
+
+/*.main-nav-scrolled {*/
+    /*margin: 0 auto;*/
+    /*overflow: hidden;*/
+    /*position: fixed;*/
+    /*background: #3c4a55;*/
+    /*width: 100%;*/
+
+    /*display: flex;*/
+    /*flex-direction: row;*/
+    /*justify-content: space-between;*/
+
+    /*transition: 0.5s;*/
+/*}*/
+
+/*.main-nav-scrolled .logo {*/
+    /*color: white;*/
+    /*padding: 20px 0 10px 60px;*/
+/*}*/
 
 
 /*--------- Main ------------*/
@@ -130,7 +130,6 @@ header {
 .container-footer {
     text-align: center;
     width: 100%;
-    margin: 0 auto;
 }
 
 .copyright {
@@ -145,4 +144,10 @@ header {
 
 .copyright a:hover {
     color: black;
+}
+
+@media screen and (max-width: 688px){
+    .logo {
+        display: none;
+    }
 }

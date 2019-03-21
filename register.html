@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MaxLock: Register</title>
     <link rel="stylesheet" href="register.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
@@ -11,12 +12,30 @@
     <div id="login-box">
         <div class="left">
             <h1>Register</h1>
-
-            <input type="text" name="username" placeholder="Username" />
-            <input type="text" name="email" placeholder="E-mail" />
-            <input type="password" name="password" placeholder="Password" />
-            <input type="password" name="password2" placeholder="Retype password" />
-
+            <div class="form">
+                <input type="text" name="username" placeholder="" autocomplete="off" required />
+                <label class="label">
+                    <span class="content-span">Username</span>
+                </label>
+            </div>
+            <div class="form">
+                <input type="text" name="email" placeholder="" autocomplete="off" required/>
+                <label class="label">
+                    <span class="content-span">E-mail</span>
+                </label>
+            </div>
+            <div class="form">
+                <input type="password" name="password" placeholder="" autocomplete="off" required/>
+                <label class="label">
+                    <span class="content-span">Password</span>
+                </label>
+            </div>
+            <div class="form">
+                <input type="password" name="password2" placeholder="" autocomplete="off" required/>
+                <label class="label">
+                    <span class="content-span">Retry password</span>
+                </label>
+            </div>
             <input type="submit" name="signup_submit" value="Register me" />
         </div>
 
@@ -28,7 +47,7 @@
             <button class="social-media twitter">Log in with Twitter</button>
             <span class="terms">Please read <br /> <a href >terms & conditions</a></span>
         </div>
-        <div class="or"><a href="/index.html">BACK</a></div>
+        <div class="back"><a href="index.html">BACK</a></div>
     </div>
 </body>
 </html>
