@@ -204,6 +204,6 @@ nav .logo {
 .large-logo{
     background: red;
 
-    height: 20%;
-
+    height: 100%;
+    width: auto;
 }
