@@ -1,4 +1,4 @@
-input[type=text] {
+.box input[type=text] {
     width: 100%;
     padding: 10px 20px;
     margin: 10px 0;
@@ -12,7 +12,7 @@ input[type=text] {
     transition: 0.2s;
 }
 
-input[type=password] {
+.box input[type=password] {
     width: 100%;
     padding: 10px 20px;
     margin: 10px 0;
@@ -27,7 +27,8 @@ input[type=password] {
 
 
 input[type=text]:focus, input[type=password]:focus {
-    border-bottom: 2px solid antiquewhite;
+    bottom: -2px;
+    border-bottom: 3px solid #0F9D58;
     color: black;
     transition: all ease-in-out 200ms;
 }
@@ -47,6 +48,7 @@ button {
 
 button:hover {
     opacity: 0.8;
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.4);
 }
 
 img {

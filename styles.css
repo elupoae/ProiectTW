@@ -4,7 +4,7 @@
 body {
     margin: 0;
     background: ghostwhite;
-    font-family: 'Work Sans', sans-serif;
+    font-family: 'Poppins', sans-serif;
     font-weight: 600;
 }
 
@@ -130,7 +130,6 @@ html {
 .container-footer {
     text-align: center;
     width: 100%;
-    margin: 0 auto;
 }
 
 .copyright {
