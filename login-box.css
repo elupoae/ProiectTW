@@ -1,4 +1,4 @@
-input[type=text] {
+.box input[type=text] {
     width: 100%;
     padding: 10px 20px;
     margin: 10px 0;
@@ -12,7 +12,7 @@ input[type=text] {
     transition: 0.2s;
 }
 
-input[type=password] {
+.box input[type=password] {
     width: 100%;
     padding: 10px 20px;
     margin: 10px 0;
