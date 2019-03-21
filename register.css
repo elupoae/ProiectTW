@@ -78,7 +78,7 @@ h1 {
     bottom: -2px;
     height: 100%;
     width: 100%;
-    border-bottom: 3px solid #AAAAAA;
+    border-bottom: 3px solid #0F9D58;
     transform: translateX(-100%);
     transition: transform 500ms ease;
 }
@@ -94,7 +94,7 @@ h1 {
 .form input:valid + .label .content-span{
     transform: translateY(-100%);
     font-size: 14px;
-    color: #DD4437;
+    color: #0F9D58;
 }
 
 .form input:focus + .label::after,
@@ -102,28 +102,6 @@ h1 {
     transform: translateX(0%);
 }
 
-
-
-/*input[type="text"], input[type="password"] {*/
-    /*display: block;*/
-    /*box-sizing: border-box;*/
-    /*margin-bottom: 20px;*/
-    /*padding: 5px;*/
-    /*width: 220px;*/
-    /*height: 30px;*/
-    /*border: none;*/
-    /*border-bottom: 1px solid #3c4a55;*/
-    /*font-weight: 400;*/
-    /*font-size: 14px;*/
-    /*transition: all ease-in-out 200ms;*/
-/*}*/
-
-
-/*input[type="text"]:focus, input[type="password"]:focus {*/
-    /*border-bottom: 2px solid antiquewhite;*/
-    /*color: black;*/
-    /*transition: all ease-in-out 200ms;*/
-/*}*/
 
 input[type="submit"] {
     margin-top: 10px;

@@ -36,21 +36,9 @@
     </nav>
 </header>
 
-
-<!--<header id="header">-->
-<!--<nav class="main-nav" id="nav-scroll">-->
-<!--<a href="index.html" class="logo"><img src="image/Text.png" alt="logo-MaxLock"></a>-->
-<!--<div class="nav-elements">-->
-<!--<a href="#">Home</a>-->
-<!--<a href="#about">About</a>-->
-<!--<a href="#contact">Contact</a>-->
-<!--<a onclick="document.getElementById('login').style.display='block'" style='width: auto; cursor: pointer'>-->
-<!--<i class="fas fa-unlock-alt"></i> Log in</a>-->
-<!--<a href="register.html"><i class="far fa-user"></i> Register</a>-->
-<!--</div>-->
-<!--</nav>-->
-<!--</header>-->
-
+<div class="large-logo">
+    <img src="image/Text.png" alt="logo-image">
+</div>
 
 <div class="main">
 
@@ -87,9 +75,6 @@
         </form>
     </div>
 
-    <div class="large-logo">
-        <img src="image/Text.png">
-    </div>
 
     <div class="content">
         <p>asdaadsaadsa</p>
@@ -102,12 +87,21 @@
         <p>asdaadsaadsa</p>
         <p>asdaadsaadsa</p>
 
-        <div class="contact">
+        <div class="contact" id="Contact">
             <h1 class="title"><b>Contact</b></h1>
-            <label><b>Subject</b></label>
-            <input type="text" placeholder="Type your subject" name="subject" required>
-            <label><b>Message</b></label>
-            <textarea class="input-message" placeholder="Type your message" name="message" required></textarea>
+            <div class="form">
+                <input class="input-subject" type="text" name="subject" placeholder="" autocomplete="off" required />
+                <label class="label">
+                    <span class="content-subject">Subject</span>
+                </label>
+            </div>
+
+            <div class="form">
+                <textarea class="input-message" placeholder="" name="message" required></textarea>
+                <label class="label">
+                    <span class="content-message">Your message for us</span>
+                </label>
+            </div>
             <button type="submit">Submit</button>
         </div>
     </div>
@@ -121,6 +115,7 @@
         </small>
     </div>
 </footer>
+<script src="javascript"></script>
 <script src="javascript/navbar.js"></script>
 <script src="javascript/login-box.js"></script>
 </body>
