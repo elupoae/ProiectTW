@@ -33,10 +33,25 @@ table a {
     text-decoration: none;
 }
 
+.column {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
 .column3 {
     text-align: center;
     width: 120px;
-    min-width: 100px;
+}
+
+@media screen and (max-width: 700px) {
+    .column{
+        width: 50%;
+        max-width: 0;
+    }
+    .column3{
+        display: none;
+    }
 }
 
 .account {
