@@ -1,35 +1,42 @@
 table {
-    font-family: arial, sans-serif;
+    border-spacing: 1px;
     border-collapse: collapse;
+    background: lightgray;
+    border-radius: 5px;
+    overflow: hidden;
     width: 100%;
+    margin: 5px auto;
+    position: relative;
 }
 
-th {
-    border: 1px solid #585858;
+table td, table th {
+    padding: 10px;
     text-align: left;
-    padding: 8px;
-}
-td {
-    border: 1px solid #dddddd;
-    text-align: left;
-    padding: 8px;
 }
 
-td.delete {
-    border: 1px solid #dddddd;
-    text-align: left;
-    color: red;
-    padding: 8px;
+table thead tr {
+    background: #3c4a55;
+    color: ghostwhite;
 }
 
-tr:nth-child(even) {
-    background-color: #dddddd;
+tbody tr:nth-child(even) {
+    background-color: #f5f5f5;
 }
 
-header {
-    background: url("../image/background-lock.jpg") 500px 550px;
-    background-size: cover;
-    height: 200px;
+tbody tr:hover {
+    color: ghostwhite;
+    background-color: darkgray;
+    cursor: pointer;
+}
+
+table a {
+    text-decoration: none;
+}
+
+.column3 {
+    text-align: center;
+    width: 120px;
+    min-width: 100px;
 }
 
 .account {
@@ -44,4 +51,11 @@ header {
     outline: none !important;
     border-bottom: 1px solid #AAA;
     transition: 0.2s;
+}
+
+.nav-elements {
+    display: flex;
+    justify-content: space-around;
+    width: 20%;
+    margin-left: 20%;
 }

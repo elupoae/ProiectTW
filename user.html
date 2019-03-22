@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="author" content="Lupoae Eduard, Neculache Nicu">
     <meta name="description" content="Password manager for management password and protection.">
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="css/nav-bar.css">
     <link rel="stylesheet" href="css/account-styles.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
           integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
@@ -15,50 +15,67 @@
 
 
 <body>
-<header id="header">
-    <nav class="main-nav" id="nav-scroll">
-        <a href="index.html" class="logo"><i class="fab fa-black-tie -fa-7x"></i></a>
-        <div class="nav-elements">
-            <a href="index.html">Home</a>
-            <a href="user.html"><i class="far fa-user"></i> Account</a>
+<header>
+    <nav class="nav-bar">
+        <a href="#"><img class="logo" src="image/Logo1.png" alt="MaxLock"></a>
+        <ul class="nav-elements">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="#"><i class="far fa-user"></i>Account</a></li>
+        </ul>
+        <div class="nav-close">
+            <div class="line-1"></div>
+            <div class="line-2"></div>
+            <div class="line-3"></div>
         </div>
+
     </nav>
 </header>
 
-<!-- Main -->
+<div class="large-logo">
+    <img src="image/Text.png" alt="logo-image">
+</div>
 
 <div class="main">
-    <h2>Password Manager</h2>
-    <table>
-        <tr>
-            <th>Site</th>
-            <th>Username/Email</th>
-            <th>Password</th>
-            <th>Last change</th>
-            <th></th>
-        </tr>
-        <tr>
-            <td>Google</td>
-            <td>nume@site.ceva</td>
-            <td>*********</td>
-            <td>12.12.2012</td>
-            <td><button type="submit" action="php/delete.php">X</button></td>
-        </tr>
-        <tr>
-            <td>Facebook</td>
-            <td>nume@site.ceva</td>
-            <td>*********</td>
-            <td>12.12.2012</td>
-            <td><button type="submit" action="php/delete.php">X</button></td>
-        </tr>
-        <tr>
-            <td>MaxLock</td>
-            <td>nume@site.ceva</td>
-            <td>*********</td>
-            <td>12.12.2012</td>
-            <td><button type="submit" action="php/delete.php">X</button></td>
-        </tr>
-    </table>
+
+    <div class="content">
+        <h2>Password Manager</h2>
+        <table>
+            <thead>
+            <tr>
+                <th>Site</th>
+                <th>Username/Email</th>
+                <th class="column3">Last change</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td><a href="https://www.google.com">Google</a></td>
+                <td>nume@site.ceva</td>
+                <td class="column3">12.12.2012</td>
+            </tr>
+            <tr>
+                <td><a href="https://www.facebook.com">Facebook</a></td>
+                <td>nume@site.ceva</td>
+                <td class="column3">12.12.2012</td>
+            </tr>
+            <tr>
+                <td><a href="index.html">MaxLock</a></td>
+                <td>nume@site.ceva</td>
+                <td class="column3">12.12.2012</td>
+            </tr>
+            <tr>
+                <td><a href="index.html">MaxLock TEst TEst</a></td>
+                <td>amun.mail.extremdelung@cevalungsiacici.net</td>
+                <td class="column3">12.12.2012</td>
+            </tr>
+            <tr>
+                <td><a href="index.html">MaxLock test2</a></td>
+                <td>amun.mail@a.abx</td>
+                <td class="column3">12.12.2012</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
 </div>
 
 <footer id="footer">

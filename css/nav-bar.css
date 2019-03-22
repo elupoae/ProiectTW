@@ -13,7 +13,7 @@ html {
 }
 
 body {
-    background: url("image/headerBackground.jpg") no-repeat center center fixed, #3b719f;
+    background: url("../image/headerBackground.jpg") no-repeat center center fixed, #3b719f;
     background-size: cover;
 
     font-family: 'Poppins', sans-serif;
@@ -317,4 +317,29 @@ button:hover {
 .large-logo img {
     height: 150px;
     width: 400px;
+}
+/*--------- Footer ----------*/
+
+
+#footer {
+    background: #3c4a55;
+    padding: 5px 5px;
+}
+.container-footer {
+    text-align: center;
+    width: 100%;
+}
+
+.copyright {
+    text-decoration: none;
+    color: white;
+}
+
+.copyright a{
+    text-decoration: none;
+    color: ghostwhite;
+}
+
+.copyright a:hover {
+    color: black;
 }
