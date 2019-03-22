@@ -8,7 +8,6 @@
     outline: none;
 }
 
-
 html {
     scroll-behavior: smooth;
 }
@@ -38,7 +37,6 @@ body {
     max-width: 50px;
     max-height: 35px;
 }
-
 
 .nav-elements {
     display: flex;
@@ -82,7 +80,6 @@ body {
 .nav-elements a:hover::before {
     width: 100%;
 }
-
 
 .nav-close {
     display: none;
@@ -159,7 +156,6 @@ body {
     transform: rotate(45deg) translate(-5px, -6px);
 }
 
-
 /*---------- Main-zone -----------*/
 
 .main-page {
@@ -173,7 +169,6 @@ body {
     padding: 10px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
-
 
 /*--------- About ------------*/
 
@@ -209,7 +204,6 @@ body {
 h3 {
     font-weight: normal;
 }
-
 
 /*--------- Contact ----------*/
 
@@ -263,7 +257,6 @@ h3 {
     border-bottom: 1px solid #3c4a55;
     font-size: 16px
 }
-
 
 .contact .form label::after {
     content: "";
@@ -336,7 +329,6 @@ button:hover {
     transition: 0.2s ease;
 }
 
-
 .large-logo {
     background: none;
     display: flex;
@@ -348,7 +340,6 @@ button:hover {
     height: 150px;
     width: 400px;
 }
-
 
 /*--------- Footer ---------*/
 #footer {

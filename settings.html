@@ -17,10 +17,10 @@
 <body>
 <header>
     <nav class="nav-bar">
-        <a href="#"><img class="logo" src="image/Logo1.png" alt="MaxLock"></a>
+        <a href="index.html"><img class="logo" src="image/Logo1.png" alt="MaxLock"></a>
         <ul class="nav-elements">
             <li><a href="index.html">Home</a></li>
-            <li><a href="settings.html"><i class="fas fa-user-cog"></i>Account</a></li>
+            <li><a href="user.html"><i class="fas fa-list-ul"></i>Passwords</a></li>
             <li><a href="#"><i class="fas fa-sign-out-alt"></i>Sign Out</a></li>
         </ul>
         <div class="nav-close">
@@ -38,8 +38,32 @@
 
 <div class="main">
 
-    <div class="content">
-        <h2><img src="image/password.png" width="20px" height="20px" alt="image-password"> Password Manager</h2>
+    <div class="main-page">
+        <div class="contact" id="newPasswordDiv">
+            <h1 class="title"><b>Change password</b></h1>
+            <div class="form">
+                <input class="input-subject" type="password" name="oldPassword" placeholder="" autocomplete="off"
+                       required/>
+                <label class="label">
+                    <span class="content-subject">Old password</span>
+                </label>
+            </div>
+            <div class="form">
+                <input class="input-subject" type="password" name="newPassword" placeholder="" autocomplete="off"
+                       required/>
+                <label class="label">
+                    <span class="content-subject">New password</span>
+                </label>
+            </div>
+            <div class="form">
+                <input class="input-subject" type="password" name="confirmPassword" placeholder="" autocomplete="off"
+                       required/>
+                <label class="label">
+                    <span class="content-subject">Confirm new password</span>
+                </label>
+            </div>
+            <button type="submit">Change password</button>
+        </div>
 
     </div>
 </div>
@@ -52,6 +76,8 @@
         </small>
     </div>
 </footer>
+<script src="javascript"></script>
+<script src="javascript/navbar.js"></script>
 
 </body>
 </html>
