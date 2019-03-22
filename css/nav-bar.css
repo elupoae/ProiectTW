@@ -315,8 +315,9 @@ button:hover {
 }
 
 .large-logo img {
-    height: 150px;
+    height: auto;
     width: 400px;
+    max-width: 100%;
 }
 /*--------- Footer ----------*/
 
