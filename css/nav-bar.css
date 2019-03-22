@@ -3,6 +3,7 @@
     margin: 0;
     padding: 0;
 }
+
 *:focus {
     outline: none;
 }
@@ -19,24 +20,25 @@ body {
     font-family: 'Poppins', sans-serif;
 }
 
-nav {
-    position: sticky;
+.nav-bar {
+    position: fixed;
     display: flex;
     justify-content: space-around;
     align-items: center;
-    background: #3c4a55;
-    max-width: 1200px;
+    background-color: #3c4a55;
+    width: 100%;
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.4);
     margin: auto;
     padding: 10px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 
-nav .logo {
+.nav-bar .logo {
     max-width: 50px;
     max-height: 35px;
 }
+
 
 .nav-elements {
     display: flex;
@@ -157,17 +159,10 @@ nav .logo {
     transform: rotate(45deg) translate(-5px, -6px);
 }
 
-#footer {
-    background: #3c4a55;
-    padding: 5px 5px;
-}
 
-.container-footer {
-    text-align: center;
-    width: 100%;
-}
+/*---------- Main-zone -----------*/
 
-.content {
+.main-page {
     flex-wrap: wrap;
     flex-basis: auto;
     align-items: center;
@@ -179,9 +174,42 @@ nav .logo {
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 
-.main .title {
+
+/*--------- About ------------*/
+
+.about {
+    margin: 100px 0 200px 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+.about .container-about {
+    height: 350px;
+    width: 350px;
+}
+
+.about .container-about .about-image {
+    background: none;
+    display: flex;
+    justify-content: center;
+}
+
+.about .container-about .about-image img {
+    height: 250px;
+    width: 250px;
+    border-radius: 50%;
+}
+
+.about .container-about .about-text {
+    margin: 20px;
     text-align: center;
 }
+
+h3 {
+    font-weight: normal;
+}
+
 
 /*--------- Contact ----------*/
 
@@ -192,16 +220,15 @@ nav .logo {
     padding: 0 10px 0 10px;
 }
 
-.main h1 {
+.main .title {
+    text-align: center;
     margin-bottom: 40px;
 }
 
-
-.contact .form{
+.contact .form {
     position: relative;
     margin-bottom: 30px;
     overflow: hidden;
-
 }
 
 .contact .form .input-subject {
@@ -211,6 +238,7 @@ nav .logo {
     width: 100%;
     font-size: 16px;
     padding-top: 20px;
+    background-color: ghostwhite;
 }
 
 .contact .form .input-message {
@@ -221,6 +249,7 @@ nav .logo {
     font-size: 16px;
     padding-top: 25px;
     resize: none;
+    background-color: ghostwhite;
 
 }
 
@@ -264,7 +293,7 @@ nav .logo {
 }
 
 .form .input-message:focus + .label .content-message,
-.form .input-message:valid + .label .content-message{
+.form .input-message:valid + .label .content-message {
     transform: translateY(-100%);
     height: 74px;
     font-size: 14px;
@@ -277,7 +306,7 @@ nav .logo {
 }
 
 .form input:focus + .label .content-subject,
-.form input:valid + .label .content-subject{
+.form input:valid + .label .content-subject {
     transform: translateY(-100%);
     height: 23px;
     font-size: 14px;
@@ -304,43 +333,43 @@ button {
 button:hover {
     opacity: 0.8;
     box-shadow: 0 3px 5px rgba(0, 0, 0, 0.4);
+    transition: 0.2s ease;
 }
 
 
-.large-logo{
+.large-logo {
     background: none;
-
     display: flex;
     justify-content: center;
 }
 
 .large-logo img {
-    height: auto;
+    margin-top: 80px;
+    height: 150px;
     width: 400px;
-    max-width: 100%;
 }
-/*--------- Footer ----------*/
 
 
+/*--------- Footer ---------*/
 #footer {
     background: #3c4a55;
     padding: 5px 5px;
+    margin-top: 100px
 }
+
 .container-footer {
     text-align: center;
     width: 100%;
+    text-decoration: none;
+    font-size: 16px;
+    color: white;
 }
 
-.copyright {
+.container-footer a {
     text-decoration: none;
     color: white;
 }
 
-.copyright a{
-    text-decoration: none;
-    color: ghostwhite;
-}
-
-.copyright a:hover {
-    color: black;
+.container-footer a:hover {
+    color: #0F9D58;
 }
