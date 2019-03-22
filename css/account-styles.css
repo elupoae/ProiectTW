@@ -75,3 +75,10 @@ table a {
     width: 30%;
     margin-left: 20%;
 }
+
+@media screen and (max-width: 700px) {
+    .nav-elements {
+        width: 42%;
+        height: 120px;
+    }
+}

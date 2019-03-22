@@ -1,6 +1,7 @@
-*{
+* {
     box-sizing: border-box;
 }
+
 *:focus {
     outline: none;
 }
@@ -91,7 +92,7 @@ h1 {
 }
 
 .form input:focus + .label .content-span,
-.form input:valid + .label .content-span{
+.form input:valid + .label .content-span {
     transform: translateY(-100%);
     font-size: 14px;
     color: #0F9D58;
@@ -101,7 +102,6 @@ h1 {
 .form input:valid + .label::after {
     transform: translateX(0%);
 }
-
 
 input[type="submit"] {
     margin-top: 10px;
@@ -121,7 +121,6 @@ input[type="submit"]:hover {
     opacity: 0.8;
     transition: 0.1s ease;
 }
-
 
 .back a {
     text-decoration: none;
