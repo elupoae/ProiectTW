@@ -9,6 +9,7 @@
     <meta name="description" content="Password manager for management password and protection.">
     <link rel="stylesheet" href="css/login-box.css">
     <link rel="stylesheet" href="css/nav-bar.css">
+    <link rel="stylesheet" href="css/reset-pass.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
           integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 </head>
@@ -57,7 +58,7 @@
                         <span class="content-span">Password</span>
                     </label>
                 </div>
-                <span class="forgot-pass"><a href="#">Forgot password?</a></span>
+                <span id="forgot-pass" class="forgot-pass"><a>Forgot password?</a></span>
                 <button type="submit">Login</button>
                 <label>
                     <input type="checkbox" checked="checked" name="remember"> Remember me
@@ -71,6 +72,30 @@
             <div class="register_using">
                 <span>Or Register Using</span>
                 <span><a href="register.html">REGISTER</a></span>
+            </div>
+        </form>
+    </div>
+
+    <div id="reset-pass" class="box">
+        <form class="box-content animate">
+            <div class="reset-pass-title">
+                <h2>Reset password</h2>
+                <hr>
+            </div>
+            <div class="container-login">
+                <div class="form">
+                    <input type="text" name="username" placeholder="" autocomplete="off" required/>
+                    <label class="label-login">
+                        <span class="content-span">Username</span>
+                    </label>
+                </div>
+                <div class="form">
+                    <input type="email" name="email" placeholder="" autocomplete="off" required/>
+                    <label class="label-login">
+                        <span class="content-span">Email</span>
+                    </label>
+                </div>
+                <button class="button-send" type="submit">Send</button>
             </div>
         </form>
     </div>
@@ -142,6 +167,6 @@
     </div>
 </footer>
 <script src="javascript/navbar.js"></script>
-<script src="javascript/login-box.js"></script>
+<script src="javascript/modal-box.js"></script>
 </body>
 </html>

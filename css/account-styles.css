@@ -1,84 +1,200 @@
-table {
-    border-spacing: 1px;
-    border-collapse: collapse;
-    background: lightgray;
-    border-radius: 5px;
-    overflow: hidden;
+.main-setting {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.main-page {
+    margin: 40px 20px;
+}
+
+
+.main {
+    margin-top: 20px;
     width: 100%;
-    margin: 5px auto;
-    position: relative;
+
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
-table td, table th {
-    padding: 10px;
-    text-align: left;
+.main .main-content {
+    width: 95%;
+    height: 100%;
+
+    background-color: #F8F8FF;
+    border-radius: 8px;
 }
 
-table thead tr {
-    background: #3c4a55;
-    color: ghostwhite;
+.main-content .main-header {
+    padding: 30px;
 }
 
-tbody tr:nth-child(even) {
-    background-color: #f5f5f5;
+.main-content .main-header h2 {
+    margin-bottom: 20px;
+    text-align: center;
 }
 
-tbody tr:hover {
-    color: ghostwhite;
-    background-color: darkgray;
+.all-info {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.main-content .add-button {
+    margin-right: 30px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    -webkit-justify-content: flex-end;
+}
+
+/* Add new account information*/
+.add-new-info {
+    height: 50px;
+    width: 200px;
+
+    text-align: center;
+    font-weight: 700;
+    cursor: pointer;
+    border-radius: 8px;
+    color: #FFF;
+    background-color: #0F9D58;
+}
+
+.add-new-info p {
+    padding-top: 15px;
+}
+
+.button-add-account {
+    margin: 30px 0 30px -20px;
+    background-color: #0F9D58;
+    width: 50%;
+    float: right;
+}
+
+/* Expend box zone */
+.expand-info {
+    margin: 30px;
+    height: 50px;
+    width: 400px;
+    overflow: hidden;
+
+    border-radius: 8px;
+    color: #FFF;
+    background-color: #3c4a55;
+
+    display: flex;
+    flex-direction: column;
+}
+
+h2 {
+    text-align: center;
+    padding-top: 10px;
     cursor: pointer;
 }
 
-table a {
+.expand-info .website-info {
     text-decoration: none;
+    color: #F8F8FF;
 }
 
-.column {
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
+.expand-info .website-info:hover {
+    color: #0F9D58;
 }
 
-.column3 {
-    text-align: center;
-    width: 120px;
+.expand-info .second-info {
+    display: none;
+    padding: 30px;
 }
 
-@media screen and (max-width: 700px) {
-    .column {
-        width: 50%;
-        max-width: 0;
-    }
-
-    .column3 {
-        display: none;
-    }
-}
-
-.account {
-    width: 100%;
-    padding: 10px 20px;
-    margin: 10px 0;
-    display: block;
-    box-sizing: border-box;
-    background: url(../image/icons8-account-20.png) no-repeat 0 7px;
-
-    border: none;
-    outline: none !important;
-    border-bottom: 1px solid #AAA;
-    transition: 0.2s;
-}
-
-.nav-elements {
+.second-info .input-info {
     display: flex;
-    justify-content: space-around;
-    width: 30%;
-    margin-left: 20%;
+    flex-direction: row;
 }
 
-@media screen and (max-width: 700px) {
-    .nav-elements {
-        width: 42%;
-        height: 120px;
-    }
+.input-info .password-info, .username-info, .last-info {
+    padding-left: 10px;
+    height: 25px;
+    width: 60%;
+    font-size: 16px;
+    color: #FFF;
+    background: none;
+    border: none;
+    pointer-events:none;
+}
+
+.second-info p{
+    padding-top: 5px;
+}
+
+.second-info input {
+    padding-top: 3px;
+}
+
+.second-info .password-checkbox {
+    margin: 10px 10px 5px 80px;
+}
+
+.button-zone {
+    margin-top: 30px;
+
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.button-zone button {
+    padding: 0;
+    margin: 0;
+    height: 30px;
+    width: 100px;
+}
+
+.button-edit {
+    background-color: #0F9D58;
+    color: #FFF;
+    display: block;
+}
+
+.button-zone .button-remove {
+    background-color: #DB4437;
+    color: #FFF;
+}
+
+.button-zone .button-save {
+    background-color: #0F9D58;
+    color: #FFF;
+    display: none;
+}
+
+#export-section {
+    width: 100%;
+    margin: 30px;
+}
+
+#export-section h5 {
+    padding: 5px 0 3px 10px;
+    font-weight: 200;
+    color: #5c5c5c;
+}
+
+#export-section hr {
+    width: 300px;
+}
+
+#export-type {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+
+#export-type button {
+    background-color: #376f98;
+    margin: 10px;
+    width: 100px;
+    height: 35px;
+    padding-top: 8px;
 }
