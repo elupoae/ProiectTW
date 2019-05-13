@@ -30,9 +30,10 @@
     padding: 30px;
 }
 
-.main-content .main-header h2 {
+.main-content .main-header .main-title {
     margin-bottom: 20px;
     text-align: center;
+    cursor: auto;
 }
 
 .all-info {
@@ -192,7 +193,7 @@ h2 {
 
 
 #export-type button {
-    background-color: #376f98;
+    background-color: #3b719f;
     margin: 10px;
     width: 100px;
     height: 35px;
