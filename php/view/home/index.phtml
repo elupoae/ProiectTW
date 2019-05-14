@@ -1,0 +1,146 @@
+<?php include VIEW . 'header.phtml'; ?>
+
+    <header>
+        <nav class="nav-bar" id="nav-bar-scrolled">
+            <a href="#"><img class="logo" src="/image/Logo1.png" alt="MaxLock"></a>
+            <ul class="nav-elements">
+                <li><a href="#">Home</a></li>
+                <li><a href="#About">About</a></li>
+                <li><a href="#Contact">Contact</a></li>
+                <?php if(isset($this->data['login']) && $this->data['login']) {?>
+                    <li><a href="/manager"><i class="fas fa-user-cog"></i><?= isset($this->data['username']) ? $this->data['username'] : "Account" ?></a></li>
+                    <li><a href="/home/logout"><i class="fas fa-sign-out-alt"></i>Sign Out</a></li>
+                <?php } else { ?>
+                <li><a onclick="document.getElementById('login').style.display='block'"
+                       style='width: auto; cursor: pointer'>
+                        <i class="fas fa-unlock-alt"></i>Log in</a></li>
+                <li><a href="/register.html"><i class="far fa-user"></i>Register</a></li>
+                <?php } ?>
+            </ul>
+            <div class="nav-close">
+                <div class="line-1"></div>
+                <div class="line-2"></div>
+                <div class="line-3"></div>
+            </div>
+        </nav>
+    </header>
+
+    <div class="large-logo">
+        <img src="/image/Text.png" alt="logo-image">
+    </div>
+
+    <div class="main">
+
+        <div id="login" class="box">
+            <form class="box-content animate" action="/home/login" method="POST">
+                <div class="container-login">
+                    <div class="form">
+                        <input id="username" type="text" name="username" placeholder="" autocomplete="off" required/>
+                        <label class="label-login">
+                            <span class="content-span">Username</span>
+                        </label>
+                    </div>
+                    <div class="form">
+                        <input id="password" type="password" name="password" placeholder="" autocomplete="off" required/>
+                        <label class="label-login">
+                            <span class="content-span">Password</span>
+                        </label>
+                    </div>
+                    <span id="forgot-pass" class="forgot-pass"><a>Forgot password?</a></span>
+                    <button type="submit">Login</button>
+                    <label>
+                        <input type="checkbox" checked="checked" name="remember"> Remember me
+                    </label>
+                </div>
+                <div class="register_using">
+                    <span>OR</span>
+                    <span><a href="/register.html">REGISTER</a></span>
+                </div>
+            </form>
+        </div>
+
+        <div id="reset-pass" class="box">
+            <form class="box-content animate">
+                <div class="reset-pass-title">
+                    <h2>Reset password</h2>
+                    <hr>
+                </div>
+                <div class="container-login">
+                    <div class="form">
+                        <input type="text" name="username" placeholder="" autocomplete="off" required/>
+                        <label class="label-login">
+                            <span class="content-span">Username</span>
+                        </label>
+                    </div>
+                    <div class="form">
+                        <input type="email" name="email" placeholder="" autocomplete="off" required/>
+                        <label class="label-login">
+                            <span class="content-span">Email</span>
+                        </label>
+                    </div>
+                    <button class="button-send" type="submit">Send</button>
+                </div>
+            </form>
+        </div>
+
+
+        <div class="main-page">
+
+            <div class="about" id="About">
+                <div class="container-about">
+                    <div class="about-image">
+                        <img src="/image/image-5.png" alt="">
+                    </div>
+                    <div class="about-text">
+                        <h3>
+                            All data stored in our database is encrypted, the user is the only one who has access to
+                            information.
+                        </h3>
+                    </div>
+                </div>
+                <div class="container-about">
+                    <div class="about-image">
+                        <img src="/image/image-6.png" alt="">
+                    </div>
+                    <div class="about-text">
+                        <h3>
+                            Use different passwords for each account, get all the passwords together in the same place
+                            so
+                            you will not confuse them.
+                        </h3>
+                    </div>
+                </div>
+                <div class="container-about">
+                    <div class="about-image">
+                        <img src="/image/image-4.png" alt="">
+                    </div>
+                    <div class="about-text">
+                        <h3>
+                            Our services are free, for whatever kind of support you can contact us in the Contact
+                            section.
+                        </h3>
+                    </div>
+                </div>
+            </div>
+
+            <div class="contact" id="Contact">
+                <h1 class="title"><b>Contact</b></h1>
+                <div class="form">
+                    <input class="input-subject" type="text" name="subject" placeholder="" autocomplete="off" required/>
+                    <label class="label">
+                        <span class="content-subject">Subject</span>
+                    </label>
+                </div>
+
+                <div class="form">
+                    <textarea class="input-message" placeholder="" name="message" required></textarea>
+                    <label class="label">
+                        <span class="content-message">Your message for us</span>
+                    </label>
+                </div>
+                <button type="submit">Submit</button>
+            </div>
+        </div>
+    </div>
+
+<?php include VIEW . 'footer.phtml'; ?>
