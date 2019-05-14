@@ -28,6 +28,22 @@ class Account
         }
     }
 
+    public function getUserData()
+    {
+        $conn = Database::getConnection();
+        $result = mysqli_query($conn, "SELECT email, last_change FROM users WHERE id='" . $_SESSION['id_user'] . "'");
+        $row = mysqli_fetch_array($result);
+
+        $data = [];
+        $data['id_user'] = $_SESSION['id_user'];
+        $data['username'] = $_SESSION['username'];
+        if (is_array($row)) {
+            $data['email'] = $row['email'];
+            $data['last_change'] = $row['last_change'];
+            return $data;
+        } else return [];
+    }
+
     public function login($username, $password, $remember = false)
     {
         $conn = Database::getConnection();
@@ -68,8 +84,8 @@ class Account
     public function newAccount($username, $email, $password)
     {
         $conn = Database::getConnection();
-        $result = mysqli_query($conn, "INSERT INTO `users` (`id`, `username`, `email`, `password`) 
-                                                        VALUES (NULL, '$username', '$email', '$password');");
+        $result = mysqli_query($conn, "INSERT INTO `users` (`id`, `username`, `email`, `password`, `last_change`) 
+                                                        VALUES (NULL, '$username', '$email', '$password', CURRENT_DATE());");
         if ($result) {
             $_SESSION['id_user'] = mysqli_insert_id($conn);
             $_SESSION['username'] = $username;
@@ -78,10 +94,10 @@ class Account
         return false;
     }
 
-    public function changePassword($oldPassword, $newPassword)
+    public function changePassword($newPassword)
     {
         $conn = Database::getConnection();
-        $result = mysqli_query($conn, "UPDATE users SET password = '$newPassword' WHERE id = '" . $_SESSION['id_user'] . "' AND password = '$oldPassword';");
+        $result = mysqli_query($conn, "UPDATE users SET password = '$newPassword' WHERE id = '" . $_SESSION['id_user'] . "'");
 
         if ($result && mysqli_affected_rows($conn) == 1)
             return true;

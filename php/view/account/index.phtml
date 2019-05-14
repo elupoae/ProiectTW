@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="/css/nav-bar.css">
     <link rel="stylesheet" href="/css/account-styles.css">
     <link rel="stylesheet" href="/css/login-box.css">
+    <link rel="stylesheet" href="/css/settings.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
           integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 </head>
@@ -42,6 +43,38 @@
             <h2 class="main-title">Register Account</h2>
             <hr>
         </div>
+
+        <div class="detailed-password">
+            <div class="title"><h4>DETAILED PASSWORD ANALYSIS</h4></div>
+            <br>
+            <div class="all-member-info-pass">
+                <div class="member-info-pass">
+                    <div class="title">All accounts</div>
+                    <div class="info-pass" id="all-accounts"><p>10</p></div>
+                </div>
+                <div class="member-info-pass">
+                    <div class="title">Week passwords</div>
+                    <div class="info-pass" id="weak-passwords"><p>3</p></div>
+                </div>
+                <div class="member-info-pass">
+                    <div class="title">Expired passwords</div>
+                    <div class="info-pass" id="expired-passwords"><p>2</p></div>
+                </div>
+                <div class="member-info-pass">
+                    <div class="title">Identical passwords</div>
+                    <div class="info-pass" id="identical-passwords"><p>5</p></div>
+                </div>
+            </div>
+            <br>
+        </div>
+        <hr style="margin:30px">
+        <div class="search">
+            <input type="text" id="searchTerm" placeholder="What site you looking for?">
+            <button type="submit" id="searchButton">
+                <i class="fa fa-search"></i>
+            </button>
+        </div>
+
         <div class="add-button">
             <div class="add-new-info" onclick="document.getElementById('add-account').style.display='block'">
                 <p>ADD NEW ACCOUNT</p>
@@ -75,8 +108,16 @@
                             <span class="content-span">Password</span>
                         </label>
                     </div>
-
-                    <button class="button-add-account" type="submit">SAVE</button>
+                    <div class="strong-bar">
+                        <div id="myProgress">
+                            <div id="myBar"></div>
+                        </div>
+                        <p>Very unsafe: 10%</p>
+                    </div>
+                    <div class="button-z">
+                        <button class="button-sp" id="button-gp" type="button">Auto generate strong</button>
+                        <button class="button-sp" id="button-cp" type="submit">Save</button>
+                    </div>
                 </div>
             </form>
         </div>
@@ -89,9 +130,9 @@
 
                         <h2 class="title-info"><?= $password['title'] ?></h2>
                         <div class="second-info">
-                            <div>
-                                <p>Web site: <a class="website-info" target="_blank" rel="noopener noreferrer"
-                                                href="<?= $password['link'] ?>"><?= $password['link'] ?></a></p>
+                            <div class="input-info-web">
+                                <p>Web site:</p> <a class="website-info" target="_blank" rel="noopener noreferrer"
+                                                    href="<?= $password['link'] ?>"><?= $password['link'] ?></a>
                             </div>
                             <div class="input-info">
                                 <p>Last change: </p>
@@ -100,25 +141,21 @@
                             </div>
                             <div class="input-info">
                                 <p>Username: </p>
-                                <input class="username-info" name="username" type="text"
-                                       value="<?= $password['username'] ?>"
+                                <input class="username-info" type="text" value="<?= $password['username'] ?>"
                                        autocomplete="off">
                             </div>
                             <div class="input-info">
                                 <p>Password:</p>
-                                <input class="password-info" name="password" type="password"
-                                       value="<?= $password['password'] ?>"
+                                <input class="password-info" type="password" value="<?= $password['password'] ?>"
                                        autocomplete="off"><br><br>
                             </div>
                             <input class="password-checkbox" type="checkbox" onclick="myFunction()">Show Password
                             <div class="button-zone">
                                 <button class="button-edit" type="button" style="display: block">Edit</button>
                                 <button class="button-save" type="submit" style="display: none">Save</button>
-                                <form action="/account/deletePassword/<?= $password['id'] ?>" method="GET"
-                                      autocomplete="off">
-                                    <button class="button-remove" type="submit"
-                                            formaction="/account/deletePassword/<?= $password['id'] ?>">Remove
-                                    </button>
+                                <button class="button-remove" type="submit"
+                                        formaction="/account/deletePassword/<?= $password['id'] ?>">Remove
+                                </button>
                             </div>
                         </div>
                     </div>

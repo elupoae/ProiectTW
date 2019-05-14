@@ -8,7 +8,8 @@
     <meta name="author" content="Lupoae Eduard, Neculache Nicu">
     <meta name="description" content="Password manager for management password and protection.">
     <link rel="stylesheet" href="/css/nav-bar.css">
-    <link rel="stylesheet" href="/css/account-styles.css">
+    <link rel="stylesheet" href="/css/settings.css">
+    <link rel="stylesheet" href="/css/login-box.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
           integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 </head>
@@ -28,37 +29,36 @@
     </nav>
 </header>
 
-<div class="main-setting">
-
-    <div class="main-page">
-        <form action="/account/changePassword" method="POST" autocomplete="off">
-            <div class="contact" id="newPasswordDiv">
-                <h1 class="title"><b>Change password</b></h1>
-                <div class="form">
-                    <input class="input-subject" type="password" name="oldPassword" placeholder="" autocomplete="off"
-                           required/>
-                    <label class="label">
-                        <span class="content-subject">Old password</span>
-                    </label>
+<div class="main-page">
+    <div class="account-info">
+        <div class="title1"><h3>ACCOUNT INFORMATION</h3></div>
+        <br>
+        <div class="personal-info">
+            <br>
+            <div class="info"><p class="p-inf">Username:</p>
+                <p class="username"><?= isset($this->data['username']) ? $this->data['username'] : "-" ?></p></div>
+            <div class="info"><p class="p-inf">E-mail:</p>
+                <p class="email"><?= isset($this->data['email']) ? $this->data['email'] : "-" ?></p></div>
+            <div class="info"><p class="p-inf">Last change:</p>
+                <p class="date"><?= isset($this->data['last_change']) ? $this->data['last_change'] : "-" ?></p></div>
+            <br>
+            <br>
+            <form class="form-ch-ps" action="/account/changePassword" method="POST" autocomplete="off">
+                <input class="input-pass" type="password" name="password" placeholder="Password" id="passOne"/>
+                <input class="input-pass" type="password" name="confirmPassword" placeholder="Confirm Password"
+                       id="passTwo"/>
+                <div class="strong-bar">
+                    <div id="myProgress">
+                        <div id="myBar"></div>
+                    </div>
+                    <p>Very unsafe: 10%</p>
                 </div>
-                <div class="form">
-                    <input class="input-subject" type="password" name="newPassword" placeholder="" autocomplete="off"
-                           required/>
-                    <label class="label">
-                        <span class="content-subject">New password</span>
-                    </label>
+                <div class="button-z">
+                    <button class="button-sp" id="button-gp" type="button">Auto generate strong</button>
+                    <button class="button-sp" id="button-cp" type="submit">Change password</button>
                 </div>
-                <div class="form">
-                    <input class="input-subject" type="password" name="confirmPassword" placeholder=""
-                           autocomplete="off"
-                           required/>
-                    <label class="label">
-                        <span class="content-subject">Confirm new password</span>
-                    </label>
-                </div>
-                <button type="submit">Change password</button>
-            </div>
-        </form>
+            </form>
+        </div>
     </div>
 </div>
 
