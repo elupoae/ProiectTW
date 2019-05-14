@@ -7,14 +7,16 @@
                 <li><a href="#">Home</a></li>
                 <li><a href="#About">About</a></li>
                 <li><a href="#Contact">Contact</a></li>
-                <?php if(isset($this->data['login']) && $this->data['login']) {?>
-                    <li><a href="/manager"><i class="fas fa-user-cog"></i><?= isset($this->data['username']) ? $this->data['username'] : "Account" ?></a></li>
+                <?php if (isset($this->data['login']) && $this->data['login']) { ?>
+                    <li><a href="/account"><i
+                                    class="fas fa-user-cog"></i><?= isset($this->data['username']) ? $this->data['username'] : "Account" ?>
+                        </a></li>
                     <li><a href="/home/logout"><i class="fas fa-sign-out-alt"></i>Sign Out</a></li>
                 <?php } else { ?>
-                <li><a onclick="document.getElementById('login').style.display='block'"
-                       style='width: auto; cursor: pointer'>
-                        <i class="fas fa-unlock-alt"></i>Log in</a></li>
-                <li><a href="/register.html"><i class="far fa-user"></i>Register</a></li>
+                    <li><a onclick="document.getElementById('login').style.display='block'"
+                           style='width: auto; cursor: pointer'>
+                            <i class="fas fa-unlock-alt"></i>Log in</a></li>
+                    <li><a href="/register.html"><i class="far fa-user"></i>Register</a></li>
                 <?php } ?>
             </ul>
             <div class="nav-close">
@@ -35,13 +37,13 @@
             <form class="box-content animate" action="/home/login" method="POST">
                 <div class="container-login">
                     <div class="form">
-                        <input id="username" type="text" name="username" placeholder="" autocomplete="off" required/>
+                        <input type="text" name="username" placeholder="" autocomplete="off" required/>
                         <label class="label-login">
                             <span class="content-span">Username</span>
                         </label>
                     </div>
                     <div class="form">
-                        <input id="password" type="password" name="password" placeholder="" autocomplete="off" required/>
+                        <input type="password" name="password" placeholder="" autocomplete="off" required/>
                         <label class="label-login">
                             <span class="content-span">Password</span>
                         </label>
@@ -105,8 +107,7 @@
                     <div class="about-text">
                         <h3>
                             Use different passwords for each account, get all the passwords together in the same place
-                            so
-                            you will not confuse them.
+                            so you will not confuse them.
                         </h3>
                     </div>
                 </div>
@@ -125,20 +126,23 @@
 
             <div class="contact" id="Contact">
                 <h1 class="title"><b>Contact</b></h1>
-                <div class="form">
-                    <input class="input-subject" type="text" name="subject" placeholder="" autocomplete="off" required/>
-                    <label class="label">
-                        <span class="content-subject">Subject</span>
-                    </label>
-                </div>
+                <form action="/home/contact" method="POST">
+                    <div class="form">
+                        <input class="input-subject" type="text" name="subject" placeholder="" autocomplete="off"
+                               required/>
+                        <label class="label">
+                            <span class="content-subject">Subject</span>
+                        </label>
+                    </div>
 
-                <div class="form">
-                    <textarea class="input-message" placeholder="" name="message" required></textarea>
-                    <label class="label">
-                        <span class="content-message">Your message for us</span>
-                    </label>
-                </div>
-                <button type="submit">Submit</button>
+                    <div class="form">
+                        <textarea class="input-message" placeholder="" name="message" required></textarea>
+                        <label class="label">
+                            <span class="content-message">Your message for us</span>
+                        </label>
+                    </div>
+                    <button type="submit">Submit</button>
+                </form>
             </div>
         </div>
     </div>

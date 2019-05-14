@@ -21,7 +21,7 @@ class Database
         try {
             self::$conn = new mysqli(self::HOST, self::USER, self::PASSWORD, self::DATABASE);
         } catch (mysqli_sql_exception $sql_exception) {
-            die(json_encode(array('status' => $sql_exception->getCode(), 'message' => 'sql_exception ' . $sql_exception->getMessage())));
+//            die(json_encode(array('status' => $sql_exception->getCode(), 'message' => 'sql_exception ' . $sql_exception->getMessage())));
         }
     }
 

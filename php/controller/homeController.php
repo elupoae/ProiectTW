@@ -27,17 +27,27 @@ class homeController extends Controller
             return;
         }
         $this->model('Account');
-        if ($this->model->login($_POST['username'], $_POST['password']))
-            $this->view('manager' . DIRECTORY_SEPARATOR . 'index');
-        else $this->view('home' . DIRECTORY_SEPARATOR . 'index');
-        $this->view->render();
+
+        if ($this->model->login($_POST['username'], $_POST['password'], isset($_POST['remember'])))
+            Application::redirectTo("/account");
+        else Application::redirectTo();
     }
 
     public function logout()
     {
         $this->model('Account');
         $this->model->logout();
-        $this->view('home' . DIRECTORY_SEPARATOR . 'index');
-        $this->view->render();
+        Application::redirectTo();
+    }
+
+    public function contact()
+    {
+        if (strtolower($_SERVER["REQUEST_METHOD"]) != "post") {
+            http_response_code(400);
+            return;
+        }
+//        $_POST['subject'];$_POST['message'];
+
+        Application::redirectTo();
     }
 }

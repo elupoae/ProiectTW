@@ -37,4 +37,11 @@ class Application
             $this->params = !empty($url) ? array_values($url) : [];
         }
     }
+
+    public static function redirectTo($path = "")
+    {
+        if (empty($path)) {
+            header("Location: /home");
+        } else header("Location: $path");
+    }
 }

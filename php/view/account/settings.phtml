@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <title>MaxLock | <?= $this->title ?></title>
+    <!--Meta-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Lupoae Eduard, Neculache Nicu">
+    <meta name="description" content="Password manager for management password and protection.">
+    <link rel="stylesheet" href="/css/nav-bar.css">
+    <link rel="stylesheet" href="/css/account-styles.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
+          integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+</head>
+<header>
+    <nav class="nav-bar">
+        <a href="/home"><img class="logo" src="/image/Logo1.png" alt="MaxLock"></a>
+        <ul class="nav-elements">
+            <li><a href="/home">Home</a></li>
+            <li><a href="/account"><i class="fas fa-list-ul"></i>Manager</a></li>
+            <li><a href="/home/logout"><i class="fas fa-sign-out-alt"></i>Sign Out</a></li>
+        </ul>
+        <div class="nav-close">
+            <div class="line-1"></div>
+            <div class="line-2"></div>
+            <div class="line-3"></div>
+        </div>
+    </nav>
+</header>
+
+<div class="main-setting">
+
+    <div class="main-page">
+        <form action="/account/resetPassword" method="POST" autocomplete="off">
+            <div class="contact" id="newPasswordDiv">
+                <h1 class="title"><b>Change password</b></h1>
+                <div class="form">
+                    <input class="input-subject" type="password" name="oldPassword" placeholder="" autocomplete="off"
+                           required/>
+                    <label class="label">
+                        <span class="content-subject">Old password</span>
+                    </label>
+                </div>
+                <div class="form">
+                    <input class="input-subject" type="password" name="newPassword" placeholder="" autocomplete="off"
+                           required/>
+                    <label class="label">
+                        <span class="content-subject">New password</span>
+                    </label>
+                </div>
+                <div class="form">
+                    <input class="input-subject" type="password" name="confirmPassword" placeholder=""
+                           autocomplete="off"
+                           required/>
+                    <label class="label">
+                        <span class="content-subject">Confirm new password</span>
+                    </label>
+                </div>
+                <button type="submit">Change password</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<script src="/javascript"></script>
+<script src="/javascript/navbar.js"></script>
+
+<?php include VIEW . 'footer.phtml'; ?>
