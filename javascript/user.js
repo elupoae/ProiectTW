@@ -45,16 +45,29 @@ for (let i = 0; i <= editButton.length; i++) {
         if (editButton[i].style.display === "block") {
             editButton[i].style.display = "none";
             saveButton[i].style.display = "block";
-            editInputPass[i].style.pointerEvents = "auto";
-            editInputUser[i].style.pointerEvents = "auto";
+            Object.assign(editInputPass[i].style, {
+                pointerEvents: "auto",
+                ["border-bottom"]: "1px solid black",
+                padding: "-1",
+                color: "#000"
+            });
+            Object.assign(editInputUser[i].style, {
+                pointerEvents: "auto",
+                ["border-bottom"]: "1px solid black",
+                padding: "-1",
+                color: "#000"
+            });
+
         }
     };
     saveButton[i].onclick = function () {
         if (saveButton[i].style.display === "block") {
             editButton[i].style.display = "block";
             saveButton[i].style.display = "none";
-            editInputPass[i].style.pointerEvents = "none";
-            editInputUser[i].style.pointerEvents = "none";
+            Object.assign(editInputPass[i].style, {pointerEvents: "none", border: "none", color: "#FFF"});
+            Object.assign(editInputUser[i].style, {pointerEvents: "none", border: "none", color: "#FFF"});
+
+
         }
     };
 }
