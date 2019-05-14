@@ -65,7 +65,20 @@ class Account
         return false;
     }
 
-    public function resetPassword($oldPassword, $newPassword)
+    public function newAccount($username, $email, $password)
+    {
+        $conn = Database::getConnection();
+        $result = mysqli_query($conn, "INSERT INTO `users` (`id`, `username`, `email`, `password`) 
+                                                        VALUES (NULL, '$username', '$email', '$password');");
+        if ($result) {
+            $_SESSION['id_user'] = mysqli_insert_id($conn);
+            $_SESSION['username'] = $username;
+            return true;
+        }
+        return false;
+    }
+
+    public function changePassword($oldPassword, $newPassword)
     {
         $conn = Database::getConnection();
         $result = mysqli_query($conn, "UPDATE users SET password = '$newPassword' WHERE id = '" . $_SESSION['id_user'] . "' AND password = '$oldPassword';");

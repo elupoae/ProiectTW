@@ -25,6 +25,12 @@ class accountController extends Controller
         $this->view->render();
     }
 
+    public function register()
+    {
+        $this->view('account' . DIRECTORY_SEPARATOR . 'register');
+        $this->view->render();
+    }
+
     public function settings()
     {
         $this->model('Account');
@@ -35,7 +41,22 @@ class accountController extends Controller
         $this->view->render();
     }
 
-    public function resetPassword()
+    public function newAccount()
+    {
+        if (strtolower($_SERVER["REQUEST_METHOD"]) != "post") {
+            http_response_code(400);
+            return;
+        }
+        if($_POST['confirmPassword'] != $_POST['password'])
+            return;
+
+        $this->model('Account');
+
+        $this->model->newAccount($_POST['username'], $_POST['email'], $_POST['password']);
+        Application::redirectTo("/account");
+    }
+
+    public function changePassword()
     {
         if (strtolower($_SERVER["REQUEST_METHOD"]) != "post") {
             http_response_code(400);
@@ -46,7 +67,7 @@ class accountController extends Controller
 
         $this->model('Account');
 
-        if ($this->model->resetPassword($_POST['oldPassword'], $_POST['newPassword']))
+        if ($this->model->changePassword($_POST['oldPassword'], $_POST['newPassword']))
             $_SESSION['message'] = "Your MAIN password has been successfully updated.";
         else $_SESSION['message'] = "Your MAIN password has NOT been updated.";
         Application::redirectTo("/account");
