@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns="http://www.w3.org/1999/html">
 <head>
     <title>MaxLock</title>
     <!--Meta-->
@@ -9,6 +9,7 @@
     <meta name="description" content="Password manager for management password and protection.">
     <link rel="stylesheet" href="css/nav-bar.css">
     <link rel="stylesheet" href="css/account-styles.css">
+    <link rel="stylesheet" href="css/login-box.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
           integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 </head>
@@ -37,46 +38,144 @@
 </div>
 
 <div class="main">
+    <div class="main-content">
+        <div class="main-header">
+            <h2 class="main-title">Register Account</h2>
+            <hr>
+        </div>
+        <div class="add-button">
+            <div class="add-new-info" onclick="document.getElementById('add-account').style.display='block'">
+                <p>ADD NEW ACCOUNT</p>
+            </div>
+        </div>
 
-    <div class="main-page">
-        <h2><img src="image/password.png" width="20px" height="20px"> Password Manager</h2>
-        <table>
-            <thead>
-            <tr>
-                <th>Site</th>
-                <th>Username/Email</th>
-                <th class="column3">Last change</th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr>
-                <td class="column"><a href="https://www.google.com">Google</a></td>
-                <td class="column">nume@site.ceva</td>
-                <td class="column3">12.12.2012</td>
-            </tr>
-            <tr>
-                <td class="column"><a href="https://www.facebook.com">Facebook</a></td>
-                <td class="column">nume@site.ceva</td>
-                <td class="column3">12.12.2012</td>
-            </tr>
-            <tr>
-                <td class="column"><a href="index.html">MaxLock</a></td>
-                <td class="column">nume@site.ceva</td>
-                <td class="column3">12.12.2012</td>
-            </tr>
-            <tr>
-                <td class="column"><a href="index.html">MaxLock TEst TEst</a></td>
-                <td class="column">amun.mail.extremdelung@cevalungsiacici.net</td>
-                <td class="column3">12.12.2012</td>
-            </tr>
-            <tr>
-                <td class="column"><a href="index.html">MaxLock test2 asdad
-                    saadadsadassadasdsadasdsadsadaasdadsadsdad</a></td>
-                <td class="column">amun.mail@a.abx</td>
-                <td class="column3">12.12.2012</td>
-            </tr>
-            </tbody>
-        </table>
+        <!-- modal add-account -->
+        <div id="add-account" class="box">
+            <form class="box-content animate">
+                <div class="add-account-title">
+                    <h2>Add new account</h2>
+                    <hr style="margin: 10px 17px 0 17px">
+                </div>
+                <div class="container-login">
+                    <div class="form">
+                        <input type="text" name="website" placeholder="" autocomplete="off" required/>
+                        <label class="label-login">
+                            <span class="content-span">Web site</span>
+                        </label>
+                    </div>
+                    <div class="form">
+                        <input type="text" name="username" placeholder="" autocomplete="off" required/>
+                        <label class="label-login">
+                            <span class="content-span">Username, email, phone</span>
+                        </label>
+                    </div>
+                    <div class="form">
+                        <input type="password" name="password" placeholder="" autocomplete="off" required/>
+                        <label class="label-login">
+                            <span class="content-span">Password</span>
+                        </label>
+                    </div>
+
+                    <button class="button-add-account">SAVE</button>
+                </div>
+            </form>
+        </div>
+
+        <div class="all-info">
+            <div class="expand-info" id="expand-info">
+                <h2 class="title-info">Google</h2>
+                <div class="second-info">
+                    <div>
+                        <p>Web site: <a class="website-info" target="_blank" rel="noopener noreferrer"
+                                        href="https://www.google.ro">Yahoo.ro</a></p>
+                    </div>
+                    <div class="input-info">
+                        <p>Last change: </p>
+                        <input class="last-info" type="text" value="12.12.2012">
+                    </div>
+                    <div class="input-info">
+                        <p>Username: </p>
+                        <input class="username-info" type="text" value="Eduard_Lupoae">
+                    </div>
+                    <div class="input-info">
+                        <p>Password:</p>
+                        <input class="password-info" type="password" value="password"><br><br>
+                    </div>
+                    <input class="password-checkbox" type="checkbox" onclick="myFunction()">Show Password
+                    <div class="button-zone">
+                        <button class="button-edit" style="display: block">Edit</button>
+                        <button class="button-save" style="display: none">Save</button>
+                        <button class="button-remove">Remove</button>
+                    </div>
+                </div>
+            </div>
+            <div class="expand-info">
+                <h2 class="title-info">Yahoo</h2>
+                <div class="second-info">
+                    <div>
+                        <p>Web site: <a class="website-info" target="_blank" rel="noopener noreferrer"
+                                        href="https://www.yahoo.ro">Yahoo.ro</a></p>
+                    </div>
+                    <div class="input-info">
+                        <p>Last change: </p>
+                        <input class="last-info" type="text" value="12.12.2012">
+                    </div>
+                    <div class="input-info">
+                        <p>Username: </p>
+                        <input class="username-info" type="text" value="Eduard_Lupoae">
+                    </div>
+                    <div class="input-info">
+                        <p>Password:</p>
+                        <input class="password-info" type="password" value="password"><br><br>
+                    </div>
+                    <input class="password-checkbox" type="checkbox" onclick="myFunction()">Show Password
+                    <div class="button-zone">
+                        <button class="button-edit" style="display: block">Edit</button>
+                        <button class="button-save" style="display: none">Save</button>
+                        <button class="button-remove">Remove</button>
+                    </div>
+                </div>
+            </div>
+            <div class="expand-info">
+                <h2 class="title-info">MaxLock</h2>
+                <div class="second-info">
+                    <div>
+                        <p>Web site: <a class="website-info" target="_blank" rel="noopener noreferrer"
+                                        href="index.html">Yahoo.ro</a></p>
+                    </div>
+                    <div class="input-info">
+                        <p>Last change: </p>
+                        <input class="last-info" type="text" value="12.12.2012">
+                    </div>
+                    <div class="input-info">
+                        <p>Username: </p>
+                        <input class="username-info" type="text" value="Eduard_Lupoae">
+                    </div>
+                    <div class="input-info">
+                        <p>Password:</p>
+                        <input class="password-info" type="password" value="password"><br><br>
+                    </div>
+                    <input class="password-checkbox" type="checkbox" onclick="myFunction()">Show Password
+                    <div class="button-zone">
+                        <button class="button-edit" style="display: block">Edit</button>
+                        <button class="button-save" style="display: none">Save</button>
+                        <button class="button-remove">Remove</button>
+                    </div>
+                </div>
+            </div>
+
+            <div id="export-section">
+                <h3>Export methods:</h3>
+                <h5>Select a method for export account information.</h5>
+                <hr>
+                <div id="export-type">
+                    <button class="button-json">JSON</button>
+                    <button class="button-xml">XML</button>
+                    <button class="button-csv">CSV</button>
+                </div>
+            </div>
+
+        </div>
     </div>
 </div>
 
@@ -90,6 +189,7 @@
 </footer>
 <script src="javascript"></script>
 <script src="javascript/navbar.js"></script>
-
+<script src="javascript/user.js"></script>
+<script src="javascript/modal-box.js"></script>
 </body>
 </html>
