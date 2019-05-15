@@ -50,19 +50,25 @@
             <div class="all-member-info-pass">
                 <div class="member-info-pass">
                     <div class="title">All accounts</div>
-                    <div class="info-pass" id="all-accounts"><p>10</p></div>
+                    <div class="info-pass" id="all-accounts">
+                        <p><?= isset($this->data['password_count']) ? $this->data['password_count'] : '-' ?></p></div>
                 </div>
                 <div class="member-info-pass">
                     <div class="title">Week passwords</div>
-                    <div class="info-pass" id="weak-passwords"><p>3</p></div>
+                    <div class="info-pass" id="weak-passwords">
+                        <p><?= isset($this->data['weak_password']) ? $this->data['weak_password'] : '-' ?></p></div>
                 </div>
                 <div class="member-info-pass">
                     <div class="title">Expired passwords</div>
-                    <div class="info-pass" id="expired-passwords"><p>2</p></div>
+                    <div class="info-pass" id="expired-passwords">
+                        <p><?= isset($this->data['expired_password']) ? $this->data['expired_password'] : '-' ?></p>
+                    </div>
                 </div>
                 <div class="member-info-pass">
                     <div class="title">Identical passwords</div>
-                    <div class="info-pass" id="identical-passwords"><p>5</p></div>
+                    <div class="info-pass" id="identical-passwords">
+                        <p><?= isset($this->data['identical_password']) ? $this->data['identical_password'] : '-' ?></p>
+                    </div>
                 </div>
             </div>
             <br>
