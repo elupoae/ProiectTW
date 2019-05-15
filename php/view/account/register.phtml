@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <title>MaxLock | <?= $this->title ?></title>
+    <!--Meta-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Lupoae Eduard, Neculache Nicu">
+    <meta name="description" content="Password manager for management password and protection.">
+    <link rel="stylesheet" href="/css/register-responsive.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
+          integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+</head>
+<body>
+<div id="login-box">
+    <div class="left">
+        <form action="/account/newAccount" method="POST" autocomplete="off">
+            <h1>Register</h1>
+            <div class="form">
+                <input type="text" name="username" placeholder="" autocomplete="off" required/>
+                <label class="label">
+                    <span class="content-span">Username</span>
+                </label>
+            </div>
+            <div class="form">
+                <input type="text" name="email" placeholder="" autocomplete="off" required/>
+                <label class="label">
+                    <span class="content-span">E-mail</span>
+                </label>
+            </div>
+            <div class="form">
+                <input type="password" name="password" placeholder="" autocomplete="off" required/>
+                <label class="label">
+                    <span class="content-span">Password</span>
+                </label>
+            </div>
+            <div class="form">
+                <input type="password" name="confirmPassword" placeholder="" autocomplete="off" required/>
+                <label class="label">
+                    <span class="content-span">Retry password</span>
+                </label>
+            </div>
+            <button type="submit" class="register">Register me</button>
+        </form>
+    </div>
+
+    <div class="right">
+        <span class="login_with">Register with<br/>social network</span>
+
+        <button class="social-media facebook">Log in with Facebook</button>
+        <button class="social-media google">Log in with Google</button>
+        <button class="social-media twitter">Log in with Twitter</button>
+        <span class="terms">Please read <br/> <a href="#">terms & conditions</a></span>
+    </div>
+    <div class="back"><a href="/home">BACK</a></div>
+</div>
+</body>
+</html>

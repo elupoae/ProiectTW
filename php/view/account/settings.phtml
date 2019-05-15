@@ -1,35 +1,31 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns="http://www.w3.org/1999/html">
 <head>
-    <title>MaxLock</title>
+    <title>MaxLock | <?= $this->title ?></title>
     <!--Meta-->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="author" content="Lupoae Eduard, Neculache Nicu">
     <meta name="description" content="Password manager for management password and protection.">
-    <link rel="stylesheet" href="css/nav-bar.css">
-    <link rel="stylesheet" href="css/settings.css">
-    <link rel="stylesheet" href="css/login-box.css">
+    <link rel="stylesheet" href="/css/nav-bar.css">
+    <link rel="stylesheet" href="/css/settings.css">
+    <link rel="stylesheet" href="/css/login-box.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
           integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 </head>
-
-
-<body>
 <header>
     <nav class="nav-bar">
-        <a href="index.html"><img class="logo" src="image/Logo1.png" alt="MaxLock"></a>
+        <a href="/home"><img class="logo" src="/image/Logo1.png" alt="MaxLock"></a>
         <ul class="nav-elements">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="user.html"><i class="fas fa-list-ul"></i>Passwords</a></li>
-            <li><a href="index.html"><i class="fas fa-sign-out-alt"></i>Sign Out</a></li>
+            <li><a href="/home">Home</a></li>
+            <li><a href="/account"><i class="fas fa-list-ul"></i>Manager</a></li>
+            <li><a href="/home/logout"><i class="fas fa-sign-out-alt"></i>Sign Out</a></li>
         </ul>
         <div class="nav-close">
             <div class="line-1"></div>
             <div class="line-2"></div>
             <div class="line-3"></div>
         </div>
-
     </nav>
 </header>
 
@@ -40,16 +36,17 @@
         <div class="personal-info">
             <br>
             <div class="info"><p class="p-inf">Username:</p>
-                <p class="username">Lupoae Eduard</p></div>
+                <p class="username"><?= isset($this->data['username']) ? $this->data['username'] : "-" ?></p></div>
             <div class="info"><p class="p-inf">E-mail:</p>
-                <p class="email">lupoae.eduard@icloud.com</p></div>
+                <p class="email"><?= isset($this->data['email']) ? $this->data['email'] : "-" ?></p></div>
             <div class="info"><p class="p-inf">Last change:</p>
-                <p class="date">5/14/2019</p></div>
+                <p class="date"><?= isset($this->data['last_change']) ? $this->data['last_change'] : "-" ?></p></div>
             <br>
             <br>
-            <form class="form-ch-ps">
-                <input class="input-pass" type="password" placeholder="Password" id="passOne"/>
-                <input class="input-pass" type="password" placeholder="Confirm Password" id="passTwo"/>
+            <form class="form-ch-ps" action="/account/changePassword" method="POST" autocomplete="off">
+                <input class="input-pass" type="password" name="password" placeholder="Password" id="passOne"/>
+                <input class="input-pass" type="password" name="confirmPassword" placeholder="Confirm Password"
+                       id="passTwo"/>
                 <div class="strong-bar">
                     <div id="myProgress">
                         <div id="myBar"></div>
@@ -57,7 +54,7 @@
                     <p>Very unsafe: 10%</p>
                 </div>
                 <div class="button-z">
-                    <button class="button-sp" id="button-gp" type="submit">Auto generate strong</button>
+                    <button class="button-sp" id="button-gp" type="button">Auto generate strong</button>
                     <button class="button-sp" id="button-cp" type="submit">Change password</button>
                 </div>
             </form>
@@ -65,17 +62,7 @@
     </div>
 </div>
 
+<script src="/javascript"></script>
+<script src="/javascript/navbar.js"></script>
 
-<footer id="footer">
-    <div class="container-footer">
-        <small class="copyright">&#9400; 2019 by <a href="http://www.info.uaic.ro/bin/Main/?language=ro"
-                                                    target="_blank">Alexandru Ioan Cuza University</a>. All rights
-            reserved.
-        </small>
-    </div>
-</footer>
-<script src="javascript"></script>
-<script src="javascript/navbar.js"></script>
-
-</body>
-</html>
+<?php include VIEW . 'footer.phtml'; ?>
