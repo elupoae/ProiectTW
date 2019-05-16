@@ -31,6 +31,7 @@ class homeController extends Controller
         if ($this->model->login($_POST['username'], $_POST['password'], isset($_POST['remember'])))
             Application::redirectTo("/account");
         else Application::redirectTo();
+        //mesaj date incorecte!!!
     }
 
     public function logout()
@@ -48,6 +49,15 @@ class homeController extends Controller
         }
 //        $_POST['subject'];$_POST['message'];
 
-        Application::redirectTo();
+        Application::redirectTo("/home/infoPage/Thank you!/The message was successfully sent.");
+    }
+
+    public function infoPage($title = "Error", $content = "An error has been encountered")
+    {
+        $params = [];
+        $params['title'] = $title;
+        $params['content'] = $content;
+        $this->view('home' . DIRECTORY_SEPARATOR . 'errorPage', $params);
+        $this->view->render();
     }
 }
