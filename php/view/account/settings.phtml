@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="/css/nav-bar.css">
     <link rel="stylesheet" href="/css/settings.css">
     <link rel="stylesheet" href="/css/login-box.css">
+    <link rel="stylesheet" href="/css/some-global.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
           integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 </head>
@@ -31,6 +32,9 @@
 
 <div class="main-page">
     <div class="account-info">
+        <div class="message-show">
+            <h4 class="massage-content"><?= isset($this->data['message']) ? $this->data['message'] : '' ?></h4>
+        </div>
         <div class="title1"><h3>ACCOUNT INFORMATION</h3></div>
         <br>
         <div class="personal-info">
@@ -43,18 +47,23 @@
                 <p class="date"><?= isset($this->data['last_change']) ? $this->data['last_change'] : "-" ?></p></div>
             <br>
             <br>
-            <form class="form-ch-ps" action="/account/changePassword" method="POST" autocomplete="off">
-                <input class="input-pass" type="password" name="password" placeholder="Password" id="passOne"/>
-                <input class="input-pass" type="password" name="confirmPassword" placeholder="Confirm Password"
-                       id="passTwo"/>
-                <div class="strong-bar">
-                    <div id="myProgress">
-                        <div id="myBar"></div>
-                    </div>
-                    <p>Very unsafe: 10%</p>
+            <form name="form_ch_ps" class="form_ch_ps" action="/account/changePassword" method="POST"
+                  autocomplete="off">
+                <input class="input-pass" type="password" name="first_password" placeholder="Password" id="passOne"
+                       autocomplete="off" readonly onfocus="this.removeAttribute('readonly');"/>
+                <input class="input-pass" type="password" name="second_password" placeholder="Confirm Password"
+                       id="passTwo" autocomplete="off" readonly onfocus="this.removeAttribute('readonly');"/>
+                <div class="password-checkbox"><input id="password-checkbox" type="checkbox" onclick="showPassword()"
+                                                      style="margin-left: 20px">Show Password
                 </div>
+                <div class="strong-bar">
+                    <progress id="progress-bar" value="0" max="100">70</progress>
+                    <span id="progress-text"></span>
+                </div>
+
                 <div class="button-z">
-                    <button class="button-sp" id="button-gp" type="button">Auto generate strong</button>
+                    <button class="button-sp" id="button-gp" type="button" onclick="generate()">Generate password
+                    </button>
                     <button class="button-sp" id="button-cp" type="submit">Change password</button>
                 </div>
             </form>
@@ -64,5 +73,6 @@
 
 <script src="/javascript"></script>
 <script src="/javascript/navbar.js"></script>
+<script src="/javascript/progress-bar.js"></script>
 
 <?php include VIEW . 'footer.phtml'; ?>

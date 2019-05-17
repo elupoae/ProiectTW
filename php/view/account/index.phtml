@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="/css/account-styles.css">
     <link rel="stylesheet" href="/css/login-box.css">
     <link rel="stylesheet" href="/css/settings.css">
+    <link rel="stylesheet" href="/css/some-global.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
           integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 </head>
@@ -39,7 +40,6 @@
 <div class="main">
     <div class="main-content">
         <div class="main-header">
-            <h4><?= isset($this->data['message']) ? $this->data['message'] : '' ?></h4>
             <h2 class="main-title">Register Account</h2>
             <hr>
         </div>
@@ -73,7 +73,12 @@
             </div>
             <br>
         </div>
-        <hr style="margin:30px">
+
+        <hr style="margin:20px 30px" <a href="#account-zone"></a><!-- This #hash-tag is for refresh back -->
+        <div class="message-show">
+            <h4 class="massage-content"><?= isset($this->data['message']) ? $this->data['message'] : '' ?></h4>
+        </div>
+        <br>
         <div class="search">
             <input type="text" id="searchTerm" placeholder="What site you looking for?">
             <button type="submit" id="searchButton">
