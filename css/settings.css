@@ -59,7 +59,7 @@ h3 {
     background-color: #753098;
 }
 
-.form-ch-ps {
+.form_ch_ps {
     display: flex;
     flex-direction: column;
 }
@@ -144,36 +144,3 @@ button#button-gp {
     border-radius: 4px;
     font-size: 16px;
 }
-
-
-
-.strong-bar {
-    display: flex;
-    flex-direction: row;
-}
-
-#myProgress {
-    margin: 10px;
-    width: 150px;
-    background-color: #ddd;
-    border-radius: 10px;
-    -webkit-border-radius: 10px;
-    -moz-border-radius: 10px;
-}
-
-#myBar {
-    width: 10%;
-    height: 16px;
-    background-color: #DB4437;
-
-    border-radius: 10px;
-    -webkit-border-radius: 10px;
-    -moz-border-radius: 10px;
-}
-
-.strong-bar p {
-    color: #DB4437;
-    margin: 10px;
-    font-size: 14px;
-}
-

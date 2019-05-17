@@ -36,6 +36,8 @@
         <div id="login" class="box">
             <form class="box-content animate" action="/home/login" method="POST">
                 <div class="container-login">
+                    <h2 style="text-align: center;">Login</h2>
+                    <hr>
                     <div class="form">
                         <input type="text" name="username" placeholder="" autocomplete="off" required/>
                         <label class="label-login">
@@ -53,6 +55,9 @@
                     <label>
                         <input type="checkbox" checked="checked" name="remember"> Remember me
                     </label>
+                </div>
+                <div class="message-show">
+                    <h4 class="massage-content"><?= isset($this->data['message']) ? $this->data['message'] : '' ?></h4>
                 </div>
                 <div class="register_using">
                     <span>OR</span>
