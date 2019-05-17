@@ -49,15 +49,20 @@ class homeController extends Controller
         }
 //        $_POST['subject'];$_POST['message'];
 
-        Application::redirectTo("/home/infoPage/Thank you!/The message was successfully sent.");
+
+        $params = [];
+        $params['title'] = "Thank you!";
+        $params['content'] = "The message was successfully sent.";
+        $this->view('home' . DIRECTORY_SEPARATOR . 'infoPage', $params);
+        $this->view->render();
     }
 
-    public function infoPage($title = "Error", $content = "An error has been encountered")
+    public function infoPage($title = "Error", $content = "An%20error%20has%20been%20encountered")
     {
         $params = [];
-        $params['title'] = $title;
-        $params['content'] = $content;
-        $this->view('home' . DIRECTORY_SEPARATOR . 'errorPage', $params);
+        $params['title'] = str_replace("%20", " ", $title);
+        $params['content'] = str_replace("%20", " ", $content);
+        $this->view('home' . DIRECTORY_SEPARATOR . 'infoPage', $params);
         $this->view->render();
     }
 }

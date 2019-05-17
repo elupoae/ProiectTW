@@ -153,4 +153,45 @@ class Account
             return true;
         return false;
     }
+
+    public static function identical_passwords($passwordList)
+    {
+        $uniq_passwords = [];
+        $repeated_passwords = [];
+        foreach ($passwordList as $password) {
+            if (!in_array($password['password'], $uniq_passwords)) {
+                array_push($uniq_passwords, $password['password']);
+            } else {
+                if (!in_array($password['password'], $repeated_passwords))
+                    array_push($repeated_passwords, $password['password']);
+            }
+        }
+        return count($passwordList) - count($uniq_passwords) + count($repeated_passwords);
+    }
+
+    public static function statistic($passwordList)
+    {
+        $statistic = [];
+        $uniq_passwords = [];
+        $repeated_passwords = [];
+        $current_date = new DateTime("now");
+
+        $statistic['password_count'] = count($passwordList);
+        $statistic['expired_passwords'] = 0;
+        $statistic['date'] = [];
+        foreach ($passwordList as $password) {
+            $last_change = new DateTime($password['last_change']);
+            $interval = $current_date->diff($last_change, true);
+            if(($interval->m + 12 * $interval->y) > 3)
+                $statistic['expired_passwords']++;
+            if (!in_array($password['password'], $uniq_passwords)) {
+                array_push($uniq_passwords, $password['password']);
+            } else {
+                if (!in_array($password['password'], $repeated_passwords))
+                    array_push($repeated_passwords, $password['password']);
+            }
+        }
+        $statistic['identical_passwords'] = count($passwordList) - count($uniq_passwords) + count($repeated_passwords);
+        return $statistic;
+    }
 }

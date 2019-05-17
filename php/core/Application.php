@@ -23,6 +23,7 @@ class Application
             }
         } else {
             http_response_code(404);
+            include( VIEW . '404.phtml');
         }
     }
 
@@ -43,5 +44,6 @@ class Application
         if (empty($path)) {
             header("Location: /home");
         } else header("Location: $path");
+        exit();
     }
 }

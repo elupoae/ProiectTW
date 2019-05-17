@@ -56,18 +56,18 @@
                 <div class="member-info-pass">
                     <div class="title">Week passwords</div>
                     <div class="info-pass" id="weak-passwords">
-                        <p><?= isset($this->data['weak_password']) ? $this->data['weak_password'] : '-' ?></p></div>
+                        <p><?= isset($this->data['weak_passwords']) ? $this->data['weak_passwords'] : '-' ?></p></div>
                 </div>
                 <div class="member-info-pass">
                     <div class="title">Expired passwords</div>
                     <div class="info-pass" id="expired-passwords">
-                        <p><?= isset($this->data['expired_password']) ? $this->data['expired_password'] : '-' ?></p>
+                        <p><?= isset($this->data['expired_passwords']) ? $this->data['expired_passwords'] : '-' ?></p>
                     </div>
                 </div>
                 <div class="member-info-pass">
                     <div class="title">Identical passwords</div>
                     <div class="info-pass" id="identical-passwords">
-                        <p><?= isset($this->data['identical_password']) ? $this->data['identical_password'] : '-' ?></p>
+                        <p><?= isset($this->data['identical_passwords']) ? $this->data['identical_passwords'] : '-' ?></p>
                     </div>
                 </div>
             </div>
@@ -183,7 +183,6 @@
                     <button class="button-csv">CSV</button>
                 </div>
             </div>
-
         </div>
     </div>
 </div>

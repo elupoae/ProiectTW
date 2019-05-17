@@ -16,8 +16,7 @@ class accountController extends Controller
 
         $params['username'] = $this->model->getUsername();
         $params['passwords'] = $this->model->get_passwords();
-        $params['password_count'] = count($params['passwords']);
-        $params['identical_password'] = $this->identical_passwords($params['passwords']);
+        $params = array_merge($params, Account::statistic($params['passwords']));
         if (isset($_SESSION['message'])) {
             $params['message'] = $_SESSION['message'];
             unset($_SESSION['message']);
@@ -123,18 +122,5 @@ class accountController extends Controller
         Application::redirectTo("/account");
     }
 
-    private function identical_passwords($passwordList)
-    {
-        $uniq_passwords = [];
-        $repeated_passwords = [];
-        foreach ($passwordList as $password) {
-            if (!in_array($password['password'], $uniq_passwords)) {
-                array_push($uniq_passwords, $password['password']);
-            } else {
-                if (!in_array($password['password'], $repeated_passwords))
-                    array_push($repeated_passwords, $password['password']);
-            }
-        }
-        return count($passwordList) - count($uniq_passwords) + count($repeated_passwords);
-    }
+
 }
