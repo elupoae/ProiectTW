@@ -65,14 +65,14 @@ class accountController extends Controller
             http_response_code(400);
             return;
         }
-        if ($_POST['confirmPassword'] != $_POST['password'] || empty($_POST['password'])) {
+        if ($_POST['first_password'] != $_POST['second_password'] || empty($_POST['first_password'])) {
             Application::redirectTo("/account/settings");
             return;
         }
 
         $this->model('Account');
 
-        if ($this->model->changePassword($_POST['password']))
+        if ($this->model->changePassword($_POST['first_password']))
             $_SESSION['message'] = "Your MAIN password has been successfully updated.";
         else $_SESSION['message'] = "Your MAIN password has NOT been updated.";
         Application::redirectTo("/account");

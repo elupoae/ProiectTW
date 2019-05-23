@@ -37,6 +37,7 @@ class Application
             unset($url[0], $url[1]);
             $this->params = !empty($url) ? array_values($url) : [];
         }
+        else self::logger("Request uri is empty.",__FILE__, "ERROR");
     }
 
     public static function redirectTo($path = "")
@@ -45,5 +46,12 @@ class Application
             header("Location: /home");
         } else header("Location: $path");
         exit();
+    }
+
+    public static function logger($message = "Error message", $file = "", $level = "WARNING")
+    {
+        $date = date("Y-m-d h:m:s");
+        $message = "[$date][$file][$level] " . $message . PHP_EOL;
+        error_log($message);
     }
 }
