@@ -54,6 +54,13 @@ class homeController extends Controller
             return;
         }
 
+        $to = "nnicu8@gmail.com";
+        $subject = $_POST['subject'];
+        $txt = $_POST['message'];
+        $headers = "From: no-reply@maxlock.com";
+
+        mail($to,$subject,$txt,$headers);
+
         $params = [];
         $params['title'] = "Thank you!";
         $params['content'] = "The message was successfully sent.";
