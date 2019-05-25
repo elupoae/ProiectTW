@@ -14,7 +14,13 @@ class homeController extends Controller
         if ($this->model->checkLogin()) {
             $params['login'] = true;
             $params['username'] = $this->model->getUsername();
-        } else $params['login'] = false;
+        } else {
+            $params['login'] = false;
+            if (isset($_SESSION['login_failed'])) {
+                $params['login_failed'] = true;
+                unset($_SESSION['login_failed']);
+            }
+        }
 
         $this->view('home' . DIRECTORY_SEPARATOR . 'index', $params);
         $this->view->render();
@@ -22,16 +28,16 @@ class homeController extends Controller
 
     public function login()
     {
-        if (strtolower($_SERVER["REQUEST_METHOD"]) != "post") {
-            http_response_code(400);
-            return;
-        }
+        if (strtolower($_SERVER["REQUEST_METHOD"]) != "post" || !isset($_POST['username']) || !isset($_POST['password']) || !ctype_alnum($_POST['username']))
+            $this->bad_request();
         $this->model('Account');
 
         if ($this->model->login($_POST['username'], $_POST['password'], isset($_POST['remember'])))
             Application::redirectTo("/account");
-        else Application::redirectTo();
-        //mesaj date incorecte!!!
+        else {
+            $_SESSION['login_failed'] = true;
+            Application::redirectTo();
+        }
     }
 
     public function logout()
@@ -43,12 +49,10 @@ class homeController extends Controller
 
     public function contact()
     {
-        if (strtolower($_SERVER["REQUEST_METHOD"]) != "post") {
+        if (strtolower($_SERVER["REQUEST_METHOD"]) != "post" || !isset($_POST['subject']) || !isset($_POST['message']) || !ctype_alnum($_POST['subject'])) {
             http_response_code(400);
             return;
         }
-//        $_POST['subject'];$_POST['message'];
-
 
         $params = [];
         $params['title'] = "Thank you!";

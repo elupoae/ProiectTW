@@ -28,7 +28,12 @@ class accountController extends Controller
 
     public function register()
     {
-        $this->view('account' . DIRECTORY_SEPARATOR . 'register');
+        $params = array();
+        if (isset($_SESSION['message'])) {
+            $params['message'] = $_SESSION['message'];
+            unset($_SESSION['message']);
+        }
+        $this->view('account' . DIRECTORY_SEPARATOR . 'register', $params);
         $this->view->render();
     }
 
@@ -39,6 +44,10 @@ class accountController extends Controller
             Application::redirectTo();
 
         $params = $this->model->getUserData();
+        if (isset($_SESSION['message'])) {
+            $params['message'] = $_SESSION['message'];
+            unset($_SESSION['message']);
+        }
 
         $this->view('account' . DIRECTORY_SEPARATOR . 'settings', $params);
         $this->view->render();
@@ -46,17 +55,17 @@ class accountController extends Controller
 
     public function newAccount()
     {
-        if (strtolower($_SERVER["REQUEST_METHOD"]) != "post") {
-            http_response_code(400);
-            return;
-        }
-        if ($_POST['confirmPassword'] != $_POST['password'])
-            return;
+        if (strtolower($_SERVER["REQUEST_METHOD"]) != "post" || !isset($_POST['username'])
+            || !isset($_POST['email']) || !isset($_POST['password']) || !isset($_POST['confirmPassword'])
+            || $_POST['confirmPassword'] != $_POST['password'])
+            $this->bad_request();
 
         $this->model('Account');
 
-        $this->model->newAccount($_POST['username'], $_POST['email'], $_POST['password']);
-        Application::redirectTo("/account");
+        if ($this->model->newAccount($_POST['username'], $_POST['email'], $_POST['password']))
+            Application::redirectTo("/account");
+        $_SESSION['message'] = "Something is not working well, retry later.";
+        Application::redirectTo("/account/register");
     }
 
     public function changePassword()
