@@ -1,4 +1,4 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en" xmlns="http://www.w3.org/1999/html">
 <head>
     <title>MaxLock | <?= $this->title ?></title>
@@ -74,16 +74,19 @@
             <br>
         </div>
 
-        <hr style="margin:20px 30px" <a href="#account-zone"></a><!-- This #hash-tag is for refresh back -->
+        <hr style="margin:20px 30px"
+        <a href="#account-zone"></a><!-- This #hash-tag is for refresh back -->
         <div class="message-show">
             <h4 class="massage-content"><?= isset($this->data['message']) ? $this->data['message'] : '' ?></h4>
         </div>
         <br>
         <div class="search">
-            <input type="text" id="searchTerm" placeholder="What site you looking for?">
-            <button type="submit" id="searchButton">
-                <i class="fa fa-search"></i>
-            </button>
+            <form action="/account/search" method="post">
+                <input name="search" type="text" id="searchTerm" placeholder="What site you looking for?">
+                <button type="submit" id="searchButton">
+                    <i class="fa fa-search"></i>
+                </button>
+            </form>
         </div>
 
         <div class="add-button">
@@ -152,12 +155,14 @@
                             </div>
                             <div class="input-info">
                                 <p>Username: </p>
-                                <input class="username-info" name="username" type="text" value="<?= $password['username'] ?>"
+                                <input class="username-info" name="username" type="text"
+                                       value="<?= $password['username'] ?>"
                                        autocomplete="off">
                             </div>
                             <div class="input-info">
                                 <p>Password:</p>
-                                <input class="password-info" name="password" type="password" value="<?= $password['password'] ?>"
+                                <input class="password-info" name="password" type="password"
+                                       value="<?= $password['password'] ?>"
                                        autocomplete="off"><br><br>
                             </div>
                             <input class="password-checkbox" type="checkbox" onclick="myFunction()">Show Password

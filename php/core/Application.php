@@ -48,7 +48,7 @@ class Application
         exit();
     }
 
-    public static function logger($message = "Error message", $file = "", $level = "WARNING")
+    public static function logger($message = "Unknown error message", $file = "", $level = "WARNING")
     {
         $date = date("Y-m-d h:m:s");
         $message = "[$date][$file][$level] " . $message . PHP_EOL;

@@ -70,29 +70,41 @@ class accountController extends Controller
 
     public function changePassword()
     {
-        if (strtolower($_SERVER["REQUEST_METHOD"]) != "post") {
-            http_response_code(400);
-            return;
-        }
-        if ($_POST['first_password'] != $_POST['second_password'] || empty($_POST['first_password'])) {
-            Application::redirectTo("/account/settings");
-            return;
-        }
+        if (strtolower($_SERVER["REQUEST_METHOD"]) != "post" || !isset($_POST['password']) || !isset($_POST['confirmPassword'])
+            || empty($_POST['password']) || $_POST['confirmPassword'] != $_POST['password'])
+            $this->bad_request();
 
         $this->model('Account');
 
-        if ($this->model->changePassword($_POST['first_password']))
+        if ($this->model->changePassword($_POST['password']))
             $_SESSION['message'] = "Your MAIN password has been successfully updated.";
         else $_SESSION['message'] = "Your MAIN password has NOT been updated.";
         Application::redirectTo("/account");
     }
 
+    public function search()
+    {
+        if (strtolower($_SERVER["REQUEST_METHOD"]) != "post" || !isset($_POST['search']))
+            $this->bad_request();
+
+        $this->model('Account');
+
+        $params['username'] = $this->model->getUsername();
+//        $params['passwords'] = $this->model->get_passwords();
+        $params = array_merge($params, Account::statistic($params['passwords']));
+        if (isset($_SESSION['message'])) {
+            $params['message'] = $_SESSION['message'];
+            unset($_SESSION['message']);
+        }
+
+        $this->view('account' . DIRECTORY_SEPARATOR . 'index', $params);
+        $this->view->render();
+    }
+
     public function newPassword()
     {
-        if (strtolower($_SERVER["REQUEST_METHOD"]) != "post") {
-            http_response_code(400);
-            return;
-        }
+        if (strtolower($_SERVER["REQUEST_METHOD"]) != "post" || !isset($_POST['link']) || !isset($_POST['username']) || !isset($_POST['password']))
+            $this->bad_request();
         $this->model('Account');
 
         if ($this->model->new_password($_POST['link'], $_POST['username'], $_POST['password']))
@@ -106,10 +118,8 @@ class accountController extends Controller
         if (!is_string($id) || strlen(intval($id)) != strlen($id))
             Application::redirectTo("/account");
 
-        if (strtolower($_SERVER["REQUEST_METHOD"]) != "post") {
-            http_response_code(400);
-            return;
-        }
+        if (strtolower($_SERVER["REQUEST_METHOD"]) != "post" || !isset($_POST['username']) || !isset($_POST['password']))
+            $this->bad_request();
         $this->model('Account');
 
         if ($this->model->edit_password($id, $_POST['username'], $_POST['password']))
@@ -130,6 +140,4 @@ class accountController extends Controller
         else $_SESSION['message'] = "Your password has NOT been deleted.";
         Application::redirectTo("/account");
     }
-
-
 }
