@@ -55,8 +55,8 @@ class accountController extends Controller
 
     public function newAccount()
     {
-        if (strtolower($_SERVER["REQUEST_METHOD"]) != "post" || !isset($_POST['username'])
-            || !isset($_POST['email']) || !isset($_POST['password']) || !isset($_POST['confirmPassword'])
+        if (strtolower($_SERVER["REQUEST_METHOD"]) != "post" || empty($_POST['username'])
+            || empty($_POST['email']) || empty($_POST['password']) || empty($_POST['confirmPassword'])
             || $_POST['confirmPassword'] != $_POST['password'])
             $this->bad_request();
 
@@ -86,11 +86,17 @@ class accountController extends Controller
     {
         if (strtolower($_SERVER["REQUEST_METHOD"]) != "post" || !isset($_POST['search']))
             $this->bad_request();
-
+        if(empty($_POST['search']))
+        {
+            $this->index();
+            return;
+        }
+        $params = [];
         $this->model('Account');
 
+        $params['search'] = $_POST['search'];
         $params['username'] = $this->model->getUsername();
-//        $params['passwords'] = $this->model->get_passwords();
+        $params['passwords'] = $this->model->search_password($_POST['search']);
         $params = array_merge($params, Account::statistic($params['passwords']));
         if (isset($_SESSION['message'])) {
             $params['message'] = $_SESSION['message'];

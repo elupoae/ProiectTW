@@ -21,6 +21,10 @@ class homeController extends Controller
                 unset($_SESSION['login_failed']);
             }
         }
+        if (isset($_SESSION['message'])) {
+            $params['message'] = $_SESSION['message'];
+            unset($_SESSION['message']);
+        }
 
         $this->view('home' . DIRECTORY_SEPARATOR . 'index', $params);
         $this->view->render();
@@ -28,7 +32,7 @@ class homeController extends Controller
 
     public function login()
     {
-        if (strtolower($_SERVER["REQUEST_METHOD"]) != "post" || !isset($_POST['username']) || !isset($_POST['password']) || !ctype_alnum($_POST['username']))
+        if (strtolower($_SERVER["REQUEST_METHOD"]) != "post" || empty($_POST['username']) || empty($_POST['password']) || !ctype_alnum($_POST['username']))
             $this->bad_request();
         $this->model('Account');
 
@@ -44,15 +48,14 @@ class homeController extends Controller
     {
         $this->model('Account');
         $this->model->logout();
+        $_SESSION['message'] = "Logout successfully.";
         Application::redirectTo();
     }
 
     public function contact()
     {
-        if (strtolower($_SERVER["REQUEST_METHOD"]) != "post" || !isset($_POST['subject']) || !isset($_POST['message']) || !ctype_alnum($_POST['subject'])) {
-            http_response_code(400);
-            return;
-        }
+        if (strtolower($_SERVER["REQUEST_METHOD"]) != "post" || empty($_POST['subject']) || empty($_POST['message']) || !ctype_alnum($_POST['subject']))
+            $this->bad_request();
 
         $to = "nnicu8@gmail.com";
         $subject = $_POST['subject'];

@@ -32,8 +32,8 @@
     </div>
 
     <div class="main">
-
-        <div id="login" class="box">
+        <?php if(isset($this->data['login_failed'])) ?>
+        <div id="login" class="box" <?= isset($this->data['login_failed']) ? "style=\"display: block\"" : '' ?>>
             <form class="box-content animate" action="/home/login" method="POST">
                 <div class="container-login">
                     <h2 style="text-align: center;">Login</h2>
@@ -57,7 +57,7 @@
                     </label>
                 </div>
                 <div class="message-show">
-                    <h4 class="massage-content"><?= isset($this->data['message']) ? $this->data['message'] : '' ?></h4>
+                    <h4 class="massage-content">Invalid data!</h4>
                 </div>
                 <div class="register_using">
                     <span>OR</span>

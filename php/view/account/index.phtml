@@ -49,7 +49,7 @@
             <br>
             <div class="all-member-info-pass">
                 <div class="member-info-pass">
-                    <div class="title">All accounts</div>
+                    <div class="title"><?= isset($this->data['search']) ? "Results " : "All accounts" ?></div>
                     <div class="info-pass" id="all-accounts">
                         <p><?= isset($this->data['password_count']) ? $this->data['password_count'] : '-' ?></p></div>
                 </div>
@@ -74,20 +74,22 @@
             <br>
         </div>
 
-        <hr style="margin:20px 30px"
+<!--        <hr style="margin:20px 30px">-->
         <a href="#account-zone"></a><!-- This #hash-tag is for refresh back -->
         <div class="message-show">
             <h4 class="massage-content"><?= isset($this->data['message']) ? $this->data['message'] : '' ?></h4>
+            <h4 class="massage-content"><?= isset($this->data['search']) ? "Results for " . $this->data['search'] : '' ?></h4>
         </div>
         <br>
-        <div class="search">
-            <form action="/account/search" method="post">
+        <form action="/account/search" method="post">
+            <div class="search">
                 <input name="search" type="text" id="searchTerm" placeholder="What site you looking for?">
                 <button type="submit" id="searchButton">
                     <i class="fa fa-search"></i>
                 </button>
-            </form>
-        </div>
+
+            </div>
+        </form>
 
         <div class="add-button">
             <div class="add-new-info" onclick="document.getElementById('add-account').style.display='block'">

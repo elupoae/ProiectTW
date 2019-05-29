@@ -104,6 +104,24 @@ class Account
         return false;
     }
 
+    public function search_password($text)
+    {
+        $conn = Database::getConnection();
+        $result = mysqli_query($conn, "SELECT * FROM passwords WHERE id_user='" . $_SESSION['id_user'] . "' AND title LIKE '%$text%' ");
+        $passwordList = [];
+        while ($row = mysqli_fetch_array($result)) {
+            $password = [];
+            $password['id'] = $row['id'];
+            $password['link'] = $row['link'];
+            $password['title'] = $row['title'];
+            $password['username'] = $row['username'];
+            $password['password'] = $row['password'];
+            $password['last_change'] = $row['last_change'];
+            array_push($passwordList, $password);
+        }
+        return $passwordList;
+    }
+
     public function get_passwords()
     {
         $conn = Database::getConnection();
@@ -154,21 +172,6 @@ class Account
         return false;
     }
 
-    public static function identical_passwords($passwordList)
-    {
-        $uniq_passwords = [];
-        $repeated_passwords = [];
-        foreach ($passwordList as $password) {
-            if (!in_array($password['password'], $uniq_passwords)) {
-                array_push($uniq_passwords, $password['password']);
-            } else {
-                if (!in_array($password['password'], $repeated_passwords))
-                    array_push($repeated_passwords, $password['password']);
-            }
-        }
-        return count($passwordList) - count($uniq_passwords) + count($repeated_passwords);
-    }
-
     public static function statistic($passwordList)
     {
         $statistic = [];
@@ -182,7 +185,7 @@ class Account
         foreach ($passwordList as $password) {
             $last_change = new DateTime($password['last_change']);
             $interval = $current_date->diff($last_change, true);
-            if(($interval->m + 12 * $interval->y) > 3)
+            if (($interval->m + 12 * $interval->y) > 3)
                 $statistic['expired_passwords']++;
             if (!in_array($password['password'], $uniq_passwords)) {
                 array_push($uniq_passwords, $password['password']);
