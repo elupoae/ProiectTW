@@ -70,8 +70,8 @@ class accountController extends Controller
 
     public function changePassword()
     {
-        if (strtolower($_SERVER["REQUEST_METHOD"]) != "post" || !isset($_POST['password']) || !isset($_POST['confirmPassword'])
-            || empty($_POST['password']) || $_POST['confirmPassword'] != $_POST['password'])
+        if (strtolower($_SERVER["REQUEST_METHOD"]) != "post" || empty($_POST['password'])
+            || empty($_POST['confirmPassword']) || $_POST['confirmPassword'] != $_POST['password'])
             $this->bad_request();
 
         $this->model('Account');
@@ -79,7 +79,7 @@ class accountController extends Controller
         if ($this->model->changePassword($_POST['password']))
             $_SESSION['message'] = "Your MAIN password has been successfully updated.";
         else $_SESSION['message'] = "Your MAIN password has NOT been updated.";
-        Application::redirectTo("/account");
+        Application::redirectTo("/account/settings");
     }
 
     public function search()
@@ -109,7 +109,7 @@ class accountController extends Controller
 
     public function newPassword()
     {
-        if (strtolower($_SERVER["REQUEST_METHOD"]) != "post" || !isset($_POST['link']) || !isset($_POST['username']) || !isset($_POST['password']))
+        if (strtolower($_SERVER["REQUEST_METHOD"]) != "post" || empty($_POST['link']) || empty($_POST['username']) || empty($_POST['password']))
             $this->bad_request();
         $this->model('Account');
 
@@ -124,7 +124,7 @@ class accountController extends Controller
         if (!is_string($id) || strlen(intval($id)) != strlen($id))
             Application::redirectTo("/account");
 
-        if (strtolower($_SERVER["REQUEST_METHOD"]) != "post" || !isset($_POST['username']) || !isset($_POST['password']))
+        if (strtolower($_SERVER["REQUEST_METHOD"]) != "post" || empty($_POST['username']) || empty($_POST['password']))
             $this->bad_request();
         $this->model('Account');
 
