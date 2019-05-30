@@ -54,7 +54,7 @@
                         <p><?= isset($this->data['password_count']) ? $this->data['password_count'] : '-' ?></p></div>
                 </div>
                 <div class="member-info-pass">
-                    <div class="title">Week passwords</div>
+                    <div class="title">Weak passwords</div>
                     <div class="info-pass" id="weak-passwords">
                         <p><?= isset($this->data['weak_passwords']) ? $this->data['weak_passwords'] : '-' ?></p></div>
                 </div>
@@ -74,7 +74,7 @@
             <br>
         </div>
 
-<!--        <hr style="margin:20px 30px">-->
+        <!--        <hr style="margin:20px 30px">-->
         <a href="#account-zone"></a><!-- This #hash-tag is for refresh back -->
         <div class="message-show">
             <h4 class="massage-content"><?= isset($this->data['message']) ? $this->data['message'] : '' ?></h4>
@@ -91,52 +91,8 @@
             </div>
         </form>
 
-        <div class="add-button">
-            <div class="add-new-info" onclick="document.getElementById('add-account').style.display='block'">
-                <p>ADD NEW ACCOUNT</p>
-            </div>
-        </div>
-
         <form autocomplete="off"></form><!-- This disable browser save_password pop-up -->
         <!-- modal add-account -->
-        <div id="add-account" class="box">
-            <form class="box-content animate" action="/account/newPassword" method="POST">
-                <div class="add-account-title">
-                    <h2>Add new account</h2>
-                    <hr style="margin: 10px 17px 0 17px">
-                </div>
-                <div class="container-login">
-                    <div class="form">
-                        <input type="text" name="link" placeholder="" autocomplete="off" required/>
-                        <label class="label-login">
-                            <span class="content-span">Web site</span>
-                        </label>
-                    </div>
-                    <div class="form">
-                        <input type="text" name="username" placeholder="" autocomplete="off" required/>
-                        <label class="label-login">
-                            <span class="content-span">Username, email, phone</span>
-                        </label>
-                    </div>
-                    <div class="form">
-                        <input type="password" name="password" placeholder="" autocomplete="off" required/>
-                        <label class="label-login">
-                            <span class="content-span">Password</span>
-                        </label>
-                    </div>
-                    <div class="strong-bar">
-                        <div id="myProgress">
-                            <div id="myBar"></div>
-                        </div>
-                        <p>Very unsafe: 10%</p>
-                    </div>
-                    <div class="button-z">
-                        <button class="button-sp" id="button-gp" type="button">Auto generate strong</button>
-                        <button class="button-sp" id="button-cp" type="submit">Save</button>
-                    </div>
-                </div>
-            </form>
-        </div>
 
         <div class="all-info">
 
@@ -165,12 +121,20 @@
                                 <p>Password:</p>
                                 <input class="password-info" name="password" type="password"
                                        value="<?= $password['password'] ?>"
-                                       autocomplete="off"><br><br>
+                                       autocomplete="off" onkeyup="progressBarUser()"><br><br>
+                                <i class="far fa-clipboard" id="clipboard" onclick="copyClipboard()"></i>
                             </div>
                             <input class="password-checkbox" type="checkbox" onclick="myFunction()">Show Password
+                            <div class="strong-bar">
+                                <progress class="progress-bar-obj" id="progress-bar-obj1" value="0" max="100">70
+                                </progress>
+                                <span class="progress-text-obj" id="progress-text-obj1"></span>
+                            </div>
                             <div class="button-zone">
                                 <button class="button-edit" type="button" style="display: block">Edit</button>
                                 <button class="button-save" type="submit" style="display: none">Save</button>
+                                <button class="button-generate" id="button-gen-pass" type="button" onclick="generate()" style="display: none">Generate
+                                </button>
                                 <button class="button-remove" type="submit"
                                         formaction="/account/deletePassword/<?= $password['id'] ?>">Remove
                                 </button>
@@ -179,16 +143,57 @@
                     </div>
                 </form>
             <?php } ?>
-
-            <div id="export-section">
-                <h3>Export methods:</h3>
-                <h5>Select a method for export account information.</h5>
-                <hr>
-                <div id="export-type">
-                    <button class="button-json">JSON</button>
-                    <button class="button-xml">XML</button>
-                    <button class="button-csv">CSV</button>
-                </div>
+            <div id="add-account" class="box">
+                <form class="box-content animate" action="/account/newPassword" method="POST">
+                    <div class="add-account-title">
+                        <h2>Add new account</h2>
+                        <hr style="margin: 10px 17px 0 17px">
+                    </div>
+                    <div class="container-login">
+                        <div class="form">
+                            <input type="text" name="link" placeholder="" autocomplete="off" required/>
+                            <label class="label-login">
+                                <span class="content-span">Web site</span>
+                            </label>
+                        </div>
+                        <div class="form">
+                            <input type="text" name="username" placeholder="" autocomplete="off" required/>
+                            <label class="label-login">
+                                <span class="content-span">Username, email, phone</span>
+                            </label>
+                        </div>
+                        <div class="form">
+                            <input id="passOne" type="password" name="password" placeholder="" autocomplete="off"
+                                   required/>
+                            <label for="passOne" class="label-login">
+                                <span class="content-span">Password</span>
+                            </label>
+                        </div>
+                        <br>
+                        <div class="strong-bar">
+                            <progress id="progress-bar" value="0" max="100">70</progress>
+                            <span id="progress-text"></span>
+                        </div>
+                        <div class="button-z">
+                            <button class="button-sp" id="button-cp" type="submit">Save</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="add-button">
+            <div class="add-new-info" onclick="document.getElementById('add-account').style.display='block'">
+                <p>ADD NEW ACCOUNT</p>
+            </div>
+        </div>
+        <div id="export-section">
+            <h3>Export methods:</h3>
+            <h5>Select a method for export account information.</h5>
+            <hr>
+            <div id="export-type">
+                <button class="button-json">JSON</button>
+                <button class="button-xml">XML</button>
+                <button class="button-csv">CSV</button>
             </div>
         </div>
     </div>
@@ -197,4 +202,8 @@
 <script src="/javascript/navbar.js"></script>
 <script src="/javascript/user.js"></script>
 <script src="/javascript/modal-box.js"></script>
+<script src="/javascript/progress-bar.js"></script>
+<script src="/javascript/progress-bar-user.js"></script>
+<script src="/javascript/clipboard.js"></script>
+
 <?php include VIEW . 'footer.phtml'; ?>

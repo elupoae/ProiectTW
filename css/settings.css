@@ -108,6 +108,7 @@ h3 {
 }
 
 .input-pass#passOne:focus, .input-pass#passTwo:focus {
+    outline: none !important;
     border: 2px solid #0F9D58;
 }
 

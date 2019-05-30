@@ -37,7 +37,7 @@
         </div>
         <div class="title1"><h3>ACCOUNT INFORMATION</h3></div>
         <br>
-        <div class="personal-info">
+        <div class="personal-info" style="padding: 10px">
             <br>
             <div class="info"><p class="p-inf">Username:</p>
                 <p class="username"><?= isset($this->data['username']) ? $this->data['username'] : "-" ?></p></div>
@@ -49,11 +49,15 @@
             <br>
             <form name="form_ch_ps" class="form_ch_ps" action="/account/changePassword" method="POST"
                   autocomplete="off">
-                <input class="input-pass" type="password" name="password" placeholder="Password" id="passOne"
-                       autocomplete="off" readonly onfocus="this.removeAttribute('readonly');"/>
-                <input class="input-pass" type="password" name="confirmPassword" placeholder="Confirm Password"
-                       id="passTwo" autocomplete="off" readonly onfocus="this.removeAttribute('readonly');"/>
-                <div class="password-checkbox"><input id="password-checkbox" type="checkbox" onclick="showPassword()"
+                <label for="passOne">Password:</label>
+                <input class="input-pass" type="password" name="password" id="passOne" placeholder=""
+                       autocomplete="off" onkeyup='check();'/>
+                <label for="passTwo">Confirm password:</label>
+                <input class="input-pass" type="password" name="confirmPassword" placeholder=""
+                       id="passTwo" autocomplete="off" onkeyup='check();'/>
+                <div class="password-checkbox">
+                    <label for="password-checkbox"></label>
+                    <input id="password-checkbox" type="checkbox" onclick="showPassword()"
                                                       style="margin-left: 20px">Show Password
                 </div>
                 <div class="strong-bar">

@@ -116,7 +116,7 @@ h2 {
 
 .input-info p, .input-info-web p{
     width: 100px;
-    color: #000;
+    color: #fff;
     font-weight: bold;
 }
 
@@ -160,6 +160,11 @@ h2 {
     background-color: #0F9D58;
     color: #FFF;
     display: block;
+}
+
+#button-gen-pass {
+    background-color: #3b5998;
+    color: #FFF;
 }
 
 .button-zone .button-remove {
@@ -210,7 +215,7 @@ h2 {
     margin: 0 30px 20px 30px;
     position: relative;
     display: flex;
-    justify-content: right;
+    justify-content: flex-end;
 }
 
 #searchTerm {
@@ -246,7 +251,7 @@ h2 {
     margin: -20px;
 }
 
-@media screen and (max-width: 400px) {
+@media screen and (max-width: 450px) {
     .main .main-content {
         width: 100%;
     }
@@ -254,4 +259,19 @@ h2 {
     #expand-info {
         width: 360px;
     }
+    #export-type {
+        width: 300px;
+    }
+
+}
+
+/* clipboard button */
+#clipboard {
+    cursor: pointer;
+    padding-top: 7px;
+    margin-left: 25px;
+}
+
+#clipboard:hover {
+    color: #0F9D58;
 }
