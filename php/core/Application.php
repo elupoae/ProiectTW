@@ -23,7 +23,7 @@ class Application
             }
         } else {
             http_response_code(404);
-            include( VIEW . '404.phtml');
+            include(VIEW . '404.phtml');
         }
     }
 
@@ -36,8 +36,10 @@ class Application
             $this->action = isset($url[1]) ? $url[1] : 'index';
             unset($url[0], $url[1]);
             $this->params = !empty($url) ? array_values($url) : [];
+        } else {
+            self::logger("Request uri is empty.", __FILE__, "ERROR");
+            http_response_code(400);
         }
-        else self::logger("Request uri is empty.",__FILE__, "ERROR");
     }
 
     public static function redirectTo($path = "")

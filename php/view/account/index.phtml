@@ -76,9 +76,16 @@
 
         <!--        <hr style="margin:20px 30px">-->
         <a href="#account-zone"></a><!-- This #hash-tag is for refresh back -->
-        <div class="message-show">
-            <h4 class="massage-content"><?= isset($this->data['message']) ? $this->data['message'] : '' ?></h4>
-            <h4 class="massage-content"><?= isset($this->data['search']) ? "Results for " . $this->data['search'] : '' ?></h4>
+        <div class="message-show <?= isset($this->data['message_color']) ? "message-" . $this->data['message_color'] : '' ?>"
+            <?= isset($this->data['message']) ? 'style="display: block"' : '' ?>>
+            <h4 class="massage-content">
+                <?= isset($this->data['message']) ? $this->data['message'] : '' ?>
+            </h4>
+        </div>
+        <div class="message-show" <?= isset($this->data['search']) ? 'style="display: block"' : '' ?>>
+            <h4 class="massage-content">
+                <?= isset($this->data['search']) ? "Results for '" . $this->data['search'] . "'" : '' ?>
+            </h4>
         </div>
         <br>
         <form action="/account/search" method="post">
@@ -93,7 +100,11 @@
 
         <form autocomplete="off"></form><!-- This disable browser save_password pop-up -->
         <!-- modal add-account -->
-
+        <div class="add-button">
+            <div class="add-new-info" onclick="document.getElementById('add-account').style.display='block'">
+                <p>ADD NEW ACCOUNT</p>
+            </div>
+        </div>
         <div class="all-info">
 
             <?php foreach ($this->data['passwords'] as $password) { ?>
@@ -133,7 +144,8 @@
                             <div class="button-zone">
                                 <button class="button-edit" type="button" style="display: block">Edit</button>
                                 <button class="button-save" type="submit" style="display: none">Save</button>
-                                <button class="button-generate" id="button-gen-pass" type="button" onclick="generate()" style="display: none">Generate
+                                <button class="button-generate" id="button-gen-pass" type="button" onclick="generate()"
+                                        style="display: none">Generate
                                 </button>
                                 <button class="button-remove" type="submit"
                                         formaction="/account/deletePassword/<?= $password['id'] ?>">Remove
@@ -181,11 +193,7 @@
                 </form>
             </div>
         </div>
-        <div class="add-button">
-            <div class="add-new-info" onclick="document.getElementById('add-account').style.display='block'">
-                <p>ADD NEW ACCOUNT</p>
-            </div>
-        </div>
+
         <div id="export-section">
             <h3>Export methods:</h3>
             <h5>Select a method for export account information.</h5>

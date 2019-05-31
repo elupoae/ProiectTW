@@ -8,12 +8,19 @@
     <meta name="author" content="Lupoae Eduard, Neculache Nicu">
     <meta name="description" content="Password manager for management password and protection.">
     <link rel="stylesheet" href="/css/register-responsive.css">
+    <link rel="stylesheet" href="/css/some-global.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
           integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 </head>
 <body>
 <div id="login-box">
     <div class="left">
+        <div class="message-show <?= isset($this->data['message_color']) ? "message-" . $this->data['message_color'] : '' ?>"
+            <?= isset($this->data['message']) ? 'style="display: block"' : '' ?>>
+            <h4 class="massage-content">
+                <?= isset($this->data['message']) ? $this->data['message'] : '' ?>
+            </h4>
+        </div>
         <form action="/account/newAccount" method="POST" autocomplete="off">
             <h1>Register</h1>
             <div class="form">

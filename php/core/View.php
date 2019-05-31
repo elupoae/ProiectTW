@@ -29,10 +29,10 @@ class View
         if (file_exists(VIEW . $this->file . '.phtml')) {
             include VIEW . $this->file . '.phtml';
         }
-    }
-
-    public function getAction()
-    {
-        return (explode('\\',$this->file))[1];
+        else
+        {
+            http_response_code(404);
+            include( VIEW . '404.phtml');
+        }
     }
 }

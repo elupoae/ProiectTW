@@ -10,7 +10,7 @@ class homeController extends Controller
     public function index()
     {
         $params = [];
-        $this->model('Account');
+        $this->model = new Account();
         if ($this->model->checkLogin()) {
             $params['login'] = true;
             $params['username'] = $this->model->getUsername();
@@ -24,6 +24,10 @@ class homeController extends Controller
         if (isset($_SESSION['message'])) {
             $params['message'] = $_SESSION['message'];
             unset($_SESSION['message']);
+            if (isset($_SESSION['message_color'])) {
+                $params['message_color'] = $_SESSION['message_color'];
+                unset($_SESSION['message_color']);
+            }
         }
 
         $this->view('home' . DIRECTORY_SEPARATOR . 'index', $params);
@@ -76,6 +80,16 @@ class homeController extends Controller
         $params = [];
         $params['title'] = str_replace("%20", " ", $title);
         $params['content'] = str_replace("%20", " ", $content);
+        $this->view('home' . DIRECTORY_SEPARATOR . 'infoPage', $params);
+        $this->view->render();
+    }
+
+    public function internal_error()
+    {
+        http_response_code(500);
+        $params = array();
+        $params['title'] = "Error 500";
+        $params['content'] = "Internal Server Error";
         $this->view('home' . DIRECTORY_SEPARATOR . 'infoPage', $params);
         $this->view->render();
     }

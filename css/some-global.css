@@ -10,14 +10,27 @@
 
     background-color: #0F9D58;
     display: none;
-}
 
-.message-show {
     padding: 15px;
     font-size: 18px;
     color: #000;
     text-align: center;
 }
+
+.message-warning{
+    background-color: #ff9d06;
+}
+
+.message-error{
+    background-color: #DB4437;
+}
+
+/*.message-show {*/
+/*    padding: 15px;*/
+/*    font-size: 18px;*/
+/*    color: #000;*/
+/*    text-align: center;*/
+/*}*/
 
 /* ---- Check box ---- */
 
