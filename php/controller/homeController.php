@@ -73,6 +73,11 @@ class homeController extends Controller
         $from = "no-reply@maxlock.com";
         $body = $_POST['message'];
 
+        $date = date("Y-m-d h:m:s");
+        $contact = json_encode(array('date' => $date, 'subject' => $subject, 'message' => $body));
+
+        $contact_file = ROOT . 'log/contact.log';
+        error_log($contact, 3, $contact_file);
 
         $params = [];
         $params['title'] = "Thank you!";
