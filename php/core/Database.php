@@ -1,9 +1,4 @@
 <?php
-/**
- * User: Nicu Neculache
- * Date: 14.05.2019
- * Time: 01:12
- */
 
 //error_reporting(E_ALL);
 //ini_set("display_errors", "On");

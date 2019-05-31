@@ -1,9 +1,4 @@
 <?php
-/**
- * User: Nicu Neculache
- * Date: 14.05.2019
- * Time: 01:06
- */
 
 class Account
 {

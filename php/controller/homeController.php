@@ -1,9 +1,4 @@
 <?php
-/**
- * User: Nicu Neculache
- * Date: 13.05.2019
- * Time: 20:04
- */
 
 class homeController extends Controller
 {
