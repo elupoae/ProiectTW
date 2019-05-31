@@ -36,9 +36,6 @@ class Application
             $this->action = isset($url[1]) ? $url[1] : 'index';
             unset($url[0], $url[1]);
             $this->params = !empty($url) ? array_values($url) : [];
-        } else {
-            self::logger("Request uri is empty.", __FILE__, "ERROR");
-            http_response_code(400);
         }
     }
 
@@ -53,7 +50,9 @@ class Application
     public static function logger($message = "Unknown error message", $file = "", $level = "WARNING")
     {
         $date = date("Y-m-d h:m:s");
-        $message = "[$date][$file][$level] " . $message . PHP_EOL;
-        error_log($message);
+        $message = "[$date][$file][$level] " . trim($message) . PHP_EOL;
+
+        $log_file = ROOT . 'log/' . date("Y-m-d") . '.log';
+        error_log($message, 3, $log_file);
     }
 }

@@ -197,6 +197,7 @@ h2 {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
+    width: 380px;
 }
 
 

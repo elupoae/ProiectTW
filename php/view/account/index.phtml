@@ -199,9 +199,11 @@
             <h5>Select a method for export account information.</h5>
             <hr>
             <div id="export-type">
-                <button class="button-json">JSON</button>
-                <button class="button-xml">XML</button>
-                <button class="button-csv">CSV</button>
+                <form action="/account/" target="_blank" method="get">
+                    <button class="button-json" formaction="/account/export_json/<?= isset($this->data['search']) ? $this->data['search'] : '' ?>">JSON</button>
+                    <button class="button-xml" formaction="/account/export_xml/<?= isset($this->data['search']) ? $this->data['search'] : '' ?>">XML</button>
+                    <button class="button-csv" formaction="/account/export_csv/<?= isset($this->data['search']) ? $this->data['search'] : '' ?>">CSV</button>
+                </form>
             </div>
         </div>
     </div>

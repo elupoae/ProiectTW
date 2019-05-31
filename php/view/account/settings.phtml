@@ -32,8 +32,11 @@
 
 <div class="main-page">
     <div class="account-info">
-        <div class="message-show">
-            <h4 class="massage-content"><?= isset($this->data['message']) ? $this->data['message'] : '' ?></h4>
+        <div class="message-show <?= isset($this->data['message_color']) ? "message-" . $this->data['message_color'] : '' ?>"
+            <?= isset($this->data['message']) ? 'style="display: block"' : '' ?>>
+            <h4 class="massage-content">
+                <?= isset($this->data['message']) ? $this->data['message'] : '' ?>
+            </h4>
         </div>
         <div class="title1"><h3>ACCOUNT INFORMATION</h3></div>
         <br>

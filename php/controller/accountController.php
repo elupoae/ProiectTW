@@ -31,6 +31,7 @@ class accountController extends Controller
 
     public function register()
     {
+        $this->model = new Account();
         $params = array();
         if (isset($_SESSION['message'])) {
             $params['message'] = $_SESSION['message'];
@@ -97,6 +98,8 @@ class accountController extends Controller
             Application::redirectTo("/account");
         }
         $this->model = new Account();
+        if (!$this->model->checkLogin())
+            Application::redirectTo();
         $params = [];
         $params['search'] = $_POST['search'];
         $params['username'] = $this->model->getUsername();
@@ -145,5 +148,71 @@ class accountController extends Controller
         $this->model = new Account();
         $this->model->delete_password($id);
         Application::redirectTo("/account");
+    }
+
+    public function export_json($search = "")
+    {
+        $this->model = new Account();
+        if (!$this->model->checkLogin())
+            Application::redirectTo();
+        $params = [];
+        $params['username'] = $this->model->getUsername();
+        if ($search != "") $params['passwords'] = $this->model->search_password($search);
+        else $params['passwords'] = $this->model->get_passwords();
+        $params = array_merge(Account::statistic($params['passwords']), $params);
+        header('Content-Type: application/json');
+        echo json_encode($params);
+    }
+
+    public function export_xml($search = "")
+    {
+        $this->model = new Account();
+        if (!$this->model->checkLogin())
+            Application::redirectTo();
+        $params = [];
+        $params['username'] = $this->model->getUsername();
+        if ($search != "") $params['passwords'] = $this->model->search_password($search);
+        else $params['passwords'] = $this->model->get_passwords();
+        $params = array_merge(Account::statistic($params['passwords']), $params);
+        header('Content-Type: application/xml');
+
+        $xml = new SimpleXMLElement('<?xml version="1.0"?><data></data>');
+        $this->array_to_xml($xml, $params);
+        echo $xml->asXML();
+    }
+
+    private function array_to_xml(&$xml, $data)
+    {
+        foreach ($data as $key => $value) {
+            if (is_numeric($key)) {
+                $key = 'item' . $key;
+            }
+            if (is_array($value)) {
+                $sub_node = $xml->addChild($key);
+                $this->array_to_xml($sub_node, $value);
+            } else {
+                $xml->addChild("$key", htmlspecialchars("$value"));
+            }
+        }
+    }
+
+    public function export_csv($search = "")
+    {
+        $this->model = new Account();
+        if (!$this->model->checkLogin())
+            Application::redirectTo();
+        $params = [];
+        $params['username'] = $this->model->getUsername();
+        if ($search != "") $params['passwords'] = $this->model->search_password($search);
+        else $params['passwords'] = $this->model->get_passwords();
+        $params = array_merge(Account::statistic($params['passwords']), $params);
+        header("Content-Type:application/csv");
+        header("Content-Disposition:attachment;filename=passwords.csv");
+        $output = fopen("php://output",'w');
+        fputcsv($output, array('id','link','title','username','password','last_change'));
+        foreach($params['passwords'] as $password) {
+            fputcsv($output, $password);
+        }
+        fclose($output);
     }
 }

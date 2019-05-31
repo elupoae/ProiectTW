@@ -15,12 +15,6 @@
 <body>
 <div id="login-box">
     <div class="left">
-        <div class="message-show <?= isset($this->data['message_color']) ? "message-" . $this->data['message_color'] : '' ?>"
-            <?= isset($this->data['message']) ? 'style="display: block"' : '' ?>>
-            <h4 class="massage-content">
-                <?= isset($this->data['message']) ? $this->data['message'] : '' ?>
-            </h4>
-        </div>
         <form action="/account/newAccount" method="POST" autocomplete="off">
             <h1>Register</h1>
             <div class="form">
@@ -54,6 +48,11 @@
 
     <div class="right">
         <span class="terms">Please read <br/> <a href="#">terms & conditions</a></span>
+        <br>
+        <div class="message-show <?= isset($this->data['message_color']) ? "message-" . $this->data['message_color'] : '' ?>"
+            <?= isset($this->data['message']) ? 'style="display: block"' : '' ?>>
+            <h4 class="massage-content"><?= isset($this->data['message']) ? $this->data['message'] : '' ?></h4>
+        </div>
     </div>
     <div class="back"><a href="/home">BACK</a></div>
 </div>

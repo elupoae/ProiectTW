@@ -61,12 +61,18 @@ class homeController extends Controller
         if (strtolower($_SERVER["REQUEST_METHOD"]) != "post" || empty($_POST['subject']) || empty($_POST['message']) || !ctype_alnum($_POST['subject']))
             $this->bad_request();
 
+
+
+        $host = "smtp.gmail.com";
+        $username = "youremail@example.com";
+        $password = "your email password";
+        $port = "465";
+
         $to = "nnicu8@gmail.com";
         $subject = $_POST['subject'];
-        $txt = $_POST['message'];
-        $headers = "From: no-reply@maxlock.com";
+        $from = "no-reply@maxlock.com";
+        $body = $_POST['message'];
 
-        mail($to,$subject,$txt,$headers);
 
         $params = [];
         $params['title'] = "Thank you!";
