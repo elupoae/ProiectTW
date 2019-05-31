@@ -155,7 +155,7 @@ class accountController extends Controller
         $params = [];
         $params['username'] = $this->model->getUsername();
         if ($search != "") $params['passwords'] = $this->model->search_password($search);
-        else $params['passwords'] = $this->model->get_passwords();
+        else $params['passwords'] = $this->model->get_passwords(0);
         $params = array_merge(Account::statistic($params['passwords']), $params);
         header('Content-Type: application/json');
         echo json_encode($params);
@@ -169,7 +169,7 @@ class accountController extends Controller
         $params = [];
         $params['username'] = $this->model->getUsername();
         if ($search != "") $params['passwords'] = $this->model->search_password($search);
-        else $params['passwords'] = $this->model->get_passwords();
+        else $params['passwords'] = $this->model->get_passwords(0);
         $params = array_merge(Account::statistic($params['passwords']), $params);
         header('Content-Type: application/xml');
 
@@ -201,7 +201,7 @@ class accountController extends Controller
         $params = [];
         $params['username'] = $this->model->getUsername();
         if ($search != "") $params['passwords'] = $this->model->search_password($search);
-        else $params['passwords'] = $this->model->get_passwords();
+        else $params['passwords'] = $this->model->get_passwords(0);
         $params = array_merge(Account::statistic($params['passwords']), $params);
         header("Content-Type:application/csv");
         header("Content-Disposition:attachment;filename=passwords.csv");
