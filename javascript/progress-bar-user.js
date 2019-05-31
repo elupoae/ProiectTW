@@ -17,10 +17,10 @@ addListenerMulti(document, 'keyup click', function () {
             return;
         }
 
-        let valid_check = [/[!@#$%^&*()+<>]/, /[A-Z]/, /[0-9]/, /[a-z]/, /\w{2,5}/g, /\D{2,20}/g]
+        let valid_check = [/[!@#$%^&*()+<>]/, /[A-Z]/, /[0-9]/, /[a-z]/, /\w{2,5}/g, /\D{2,10}/g]
             .reduce((memo, test) => memo + test.test(objInputPass[ii].value), 0);
-        valid_check += [/\d{10,20}/g, /\w{10,20}/g]
-            .reduce((memo, test) => memo - test.test(objInputPass[ii].value), 0);
+        valid_check -= [/\d{10,20}/g, /\w{10,20}/g]
+            .reduce((memo, test) => memo + test.test(objInputPass[ii].value), 0);
 
         valid_check *= 10;
 
@@ -41,10 +41,22 @@ addListenerMulti(document, 'keyup click', function () {
     }
 });
 
+// function for generate a decent password length 15-20 with all characters
+function randomPasswordUsr() {
+    let string = "abcdefghijklmnopqrstuvwxyz!@#$%^&*()+<>ABCDEFGHIJKLMNOP1234567890";
+    let password = "";
+    let length = Math.floor(Math.random() * (5) + 20);
+    for (let ii = 0; ii < length; ii++) {
+        let i = Math.floor(Math.random() * string.length);
+        password += string.charAt(i);
+    }
+    return password;
+}
+
 objGeneratePass = document.getElementsByClassName('button-generate');
 
 for (let ii = 0; ii <= objInputPass.length; ii++) {
     objGeneratePass[ii].onclick = function() {
-        objInputPass[ii].value = randomPassword();
+        objInputPass[ii].value = randomPasswordUsr();
     }
 }

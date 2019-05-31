@@ -40,7 +40,6 @@ function check() {
     }
 }
 
-// progress bar for strength password
 function addListenerMulti(element, eventNames, listener) {
     let events = eventNames.split(' ');
     for (let i = 0, len = events.length; i < len; i++) {
@@ -50,29 +49,28 @@ function addListenerMulti(element, eventNames, listener) {
 
 addListenerMulti(document, 'keyup click', function () {
 
-    let current_password = passOne.value;
-    // Reset if password length is zero
-    if (current_password.length === 0) {
+    let current_pass = passOne.value;
+    if (current_pass.length === 0) {
         document.getElementById("progress-text").innerHTML = "";
         document.getElementById("progress-bar").value = "0";
         return;
     }
 
-    let valid_check = [/[!@#$%^&*()+<>]/, /[A-Z]/, /[0-9]/, /[a-z]/, /\w{2,5}/g, /\D{2,20}/g]
-         .reduce((memo, test) => memo + test.test(current_password), 0);
+    let valid_check = [/[!@#$%^&*()+<>]/, /[A-Z]/, /[0-9]/, /[a-z]/, /\w{2,5}/g, /\D{2,10}/g]
+        .reduce((memo, test) => memo + test.test(current_pass), 0);
+    valid_check -= [/\d{10,20}/g, /\w{10,20}/g]
+        .reduce((memo, test) => memo + test.test(current_pass), 0);
 
-    valid_check += [/\d{10,20}/g, /\w{10,20}/g]
-        .reduce((memo, test) => memo - test.test(objInputPass[ii].value), 0);
     valid_check *= 10;
-
-    if (valid_check >= 50 && current_password.length > 14) {
+    // alert(valid_check);
+    if (valid_check >= 50 && current_pass.length > 14) {
         valid_check += 40;
-    } else if (valid_check > 40 && current_password.length > 10) {
+    } else if (valid_check > 40 && current_pass.length > 10) {
         valid_check += 20;
-    } else if (valid_check > 20 && current_password.length > 7) {
+    } else if (valid_check > 20 && current_pass.length > 7) {
         valid_check += 10
-    } else if (valid_check < 30 || current_password.length < 7){
-        valid_check = 0;
+    } else if (valid_check < 20 && current_pass.length < 7) {
+        valid_check = 5;
     }
 
     let progress = valid_check.toString();
@@ -80,3 +78,4 @@ addListenerMulti(document, 'keyup click', function () {
     document.getElementById("progress-text").innerHTML = progress + "%";
     document.getElementById("progress-bar").value = progress;
 });
+
