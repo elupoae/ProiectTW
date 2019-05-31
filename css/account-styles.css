@@ -178,6 +178,21 @@ h2 {
     display: none;
 }
 
+.button-back-next {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.button-back-next > button {
+    background-color: #3b5998;
+    padding-top: 6px;
+    height: 30px;
+    width: 80px;
+    margin: 30px;
+}
+
 #export-section {
     width: 100%;
     margin: 30px;
