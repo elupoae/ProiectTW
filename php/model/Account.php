@@ -200,13 +200,20 @@ class Account
         return [];
     }
 
-    public function get_passwords()
+    public function get_passwords($page = 1)
     {
+        $from = ($page-1) * 10;
+        $to = $page * 10;
+        if($page == 0)
+        {
+            $from = 0;
+            $to = 99999;
+        }
         try {
             $passwordList = [];
             $conn = Database::getConnection();
-            $stmt = mysqli_prepare($conn, "SELECT * FROM passwords WHERE id_user= ?");
-            $stmt->bind_param("i", $_SESSION['id_user']);
+            $stmt = mysqli_prepare($conn, "SELECT * FROM passwords WHERE id_user= ? LIMIT ?,?");
+            $stmt->bind_param("iii", $_SESSION['id_user'],$from, $to);
             if (!$stmt->execute())
                 throw new mysqli_sql_exception($stmt->error, $stmt->errno);
             $result = $stmt->get_result();
@@ -298,8 +305,13 @@ class Account
         $_SESSION['message_color'] = "error";
     }
 
-    public static function statistic($passwordList)
+    public static function statistic($passwordList = null)
     {
+        if($passwordList == null)
+        {
+            $account = new Account();
+            $passwordList = $account->get_passwords(0);
+        }
         $statistic = [];
         $uniq_passwords = [];
         $repeated_passwords = [];

@@ -195,9 +195,13 @@
             </div>
         </div>
         <div>
-            <form  class="button-back-next">
-                <button type="submit">Back</button>
-                <button type="submit">Next</button>
+            <form  class="button-back-next" action="/account/" method="get">
+                <?php if($this->data['current_page'] > 1){ ?>
+                <button type="submit" formaction="/account/<?= isset($this->data['current_page']) ? $this->data['current_page']+1 : '1' ?>">Back</button>
+                <?php } ?>
+                <?php if($this->data['count_page'] == 10 && $this->data['password_count'] > 10){ ?>
+                <button type="submit" formaction="/account/<?= isset($this->data['current_page']) ? $this->data['current_page']-1 : '1' ?>">Next</button>
+                <?php } ?>
             </form>
         </div>
 

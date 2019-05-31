@@ -2,15 +2,17 @@
 
 class accountController extends Controller
 {
-    public function index()
+    public function index($page = 1)
     {
         $params = [];
         $this->model = new Account();
         if (!$this->model->checkLogin())
             Application::redirectTo();
         $params['username'] = $this->model->getUsername();
-        $params['passwords'] = $this->model->get_passwords();
-        $params = array_merge($params, Account::statistic($params['passwords']));
+        $params['passwords'] = $this->model->get_passwords($page);
+        $params['count_page'] = count($params['passwords']);
+        $params['current_page'] = $page;
+        $params = array_merge($params, Account::statistic());
         if (isset($_SESSION['message'])) {
             $params['message'] = $_SESSION['message'];
             unset($_SESSION['message']);
