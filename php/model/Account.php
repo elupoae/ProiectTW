@@ -125,7 +125,6 @@ class Account
         try {
             $conn = Database::getConnection();
             $stmt = mysqli_prepare($conn, "INSERT INTO users VALUES (NULL, ?, ?, ?, CURRENT_DATE());");
-            $crypt = self::encrypt($password);
             $stmt->bind_param("sss", $username, $email, crypt($password, self::$k));
 
             if (!$stmt->execute() || $stmt->affected_rows == 0)
