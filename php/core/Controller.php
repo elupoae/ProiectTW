@@ -14,7 +14,7 @@ class Controller
     public function model($modelName)
     {
         if (file_exists(MODEL . $modelName . '.php')) {
-            require MODEL . $modelName . '.php';
+            require_once MODEL . $modelName . '.php';
             $this->model = new $modelName;
         } else {
             Application::logger("Model $modelName is not exist in model(modelName)", __CLASS__, "ERROR");

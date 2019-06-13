@@ -5,7 +5,7 @@ class accountController extends Controller
     public function index($page = 1)
     {
         $params = [];
-        $this->model = new Account();
+        $this->model('Account');
         if (!$this->model->checkLogin())
             Application::redirectTo();
         $params['username'] = $this->model->getUsername();
@@ -28,7 +28,7 @@ class accountController extends Controller
 
     public function register()
     {
-        $this->model = new Account();
+        $this->model('Account');
         $params = array();
         if (isset($_SESSION['message'])) {
             $params['message'] = $_SESSION['message'];
@@ -44,7 +44,7 @@ class accountController extends Controller
 
     public function settings()
     {
-        $this->model = new Account();
+        $this->model('Account');
         if (!$this->model->checkLogin())
             Application::redirectTo();
 
@@ -69,7 +69,7 @@ class accountController extends Controller
             || $_POST['confirmPassword'] != $_POST['password'])
             $this->bad_request();
 
-        $this->model = new Account();
+        $this->model('Account');
 
         if ($this->model->newAccount($_POST['username'], $_POST['email'], $_POST['password']))
             Application::redirectTo("/account");
@@ -82,7 +82,7 @@ class accountController extends Controller
             || empty($_POST['confirmPassword']) || $_POST['confirmPassword'] != $_POST['password'])
             $this->bad_request();
 
-        $this->model = new Account();
+        $this->model('Account');
         $this->model->changePassword($_POST['password']);
         Application::redirectTo("/account/settings");
     }
@@ -94,7 +94,7 @@ class accountController extends Controller
         if (empty($_POST['search'])) {
             Application::redirectTo("/account");
         }
-        $this->model = new Account();
+        $this->model('Account');
         if (!$this->model->checkLogin())
             Application::redirectTo();
         $params = [];
@@ -119,7 +119,7 @@ class accountController extends Controller
         if (strtolower($_SERVER["REQUEST_METHOD"]) != "post" || empty($_POST['link']) || empty($_POST['username']) || empty($_POST['password']))
             $this->bad_request();
 
-        $this->model = new Account();
+        $this->model('Account');
         $this->model->new_password($_POST['link'], $_POST['username'], $_POST['password']);
         Application::redirectTo("/account");
     }
@@ -132,7 +132,7 @@ class accountController extends Controller
         if (strtolower($_SERVER["REQUEST_METHOD"]) != "post" || empty($_POST['username']) || empty($_POST['password']))
             $this->bad_request();
 
-        $this->model = new Account();
+        $this->model('Account');
         $this->model->edit_password($id, $_POST['username'], $_POST['password']);
         Application::redirectTo("/account");
     }
@@ -142,14 +142,14 @@ class accountController extends Controller
         if (!is_string($id) || strlen(intval($id)) != strlen($id))
             Application::redirectTo("/account");
 
-        $this->model = new Account();
+        $this->model('Account');
         $this->model->delete_password($id);
         Application::redirectTo("/account");
     }
 
     public function export_json($search = "")
     {
-        $this->model = new Account();
+        $this->model('Account');
         if (!$this->model->checkLogin())
             Application::redirectTo();
         $params = [];
@@ -163,7 +163,7 @@ class accountController extends Controller
 
     public function export_xml($search = "")
     {
-        $this->model = new Account();
+        $this->model('Account');
         if (!$this->model->checkLogin())
             Application::redirectTo();
         $params = [];
@@ -195,7 +195,7 @@ class accountController extends Controller
 
     public function export_csv($search = "")
     {
-        $this->model = new Account();
+        $this->model('Account');
         if (!$this->model->checkLogin())
             Application::redirectTo();
         $params = [];

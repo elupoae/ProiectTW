@@ -10,6 +10,7 @@ class Application
     {
         $this->prepareURL();
         if (file_exists(CONTROLLER . $this->controller . '.php')) {
+            require_once CONTROLLER . $this->controller . '.php';
             $this->controller = new $this->controller;
             if (method_exists($this->controller, $this->action)) {
                 Database::setConnection();
@@ -26,6 +27,7 @@ class Application
         $request = trim($_SERVER['REQUEST_URI'], '/');
         if (!empty($request)) {
             $url = explode('/', $request);
+//            unset($url[0]);
             $this->controller = isset($url[0]) ? $url[0] . 'Controller' : 'homeController';
             $this->action = isset($url[1]) ? $url[1] : 'index';
             unset($url[0], $url[1]);

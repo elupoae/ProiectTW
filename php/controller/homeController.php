@@ -5,7 +5,7 @@ class homeController extends Controller
     public function index()
     {
         $params = [];
-        $this->model = new Account();
+        $this->model('Account');
         if ($this->model->checkLogin()) {
             $params['login'] = true;
             $params['username'] = $this->model->getUsername();
