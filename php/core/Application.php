@@ -1,5 +1,5 @@
 <?php
-
+include_once CORE . 'Database.php';
 class Application
 {
     private $controller = 'homeController';

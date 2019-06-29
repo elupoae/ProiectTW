@@ -1,5 +1,5 @@
 <?php
-
+include_once CORE . 'Controller.php';
 class homeController extends Controller
 {
     public function index()
